@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prashanta's Spanish Learning Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F3EE;
+  --white: #FFFFFF;
+  --card: #FFFFFF;
+  --navy: #162032;
+  --navy2: #243348;
+  --terra: #C0432A;
+  --terra-light: #FAEAE6;
+  --terra-mid: #E8634D;
+  --gold: #C9903A;
+  --gold-light: #FDF3E0;
+  --teal: #0F7B6C;
+  --teal-light: #E4F5F2;
+  --purple: #5B3FA0;
+  --purple-light: #EEE8FA;
+  --border: #E8E1D8;
+  --text: #162032;
+  --text2: #4A5568;
+  --text3: #8A94A6;
+  --success: #1A7A4A;
+  --success-bg: #E6F5ED;
+  --blue: #1A5FA8;
+  --blue-bg: #E6F0FA;
+  --orange: #C06A0F;
+  --orange-bg: #FDF0E0;
+  --red: #B52D1E;
+  --red-bg: #FAEAE6;
+  --tag-app-bg: #E6F0FA; --tag-app: #1A5FA8;
+  --tag-audio-bg: #FDF0E0; --tag-audio: #C06A0F;
+  --tag-video-bg: #FAEAE6; --tag-video: #B52D1E;
+  --tag-web-bg: #E6F5ED; --tag-web: #1A7A4A;
+  --tag-speak-bg: #EEE8FA; --tag-speak: #5B3FA0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.7;
+  min-height:100vh;
+}
+
+/* ============ LAYOUT ============ */
+.app-shell{display:flex;min-height:100vh;}
+.sidebar{
+  width:240px;
+  flex-shrink:0;
+  background:var(--navy);
+  min-height:100vh;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+}
+.main-content{flex:1;min-width:0;overflow-x:hidden;}
+
+/* ============ SIDEBAR ============ */
+.sidebar-logo{
+  padding:28px 20px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.sidebar-logo-flag{font-size:22px;letter-spacing:4px;margin-bottom:6px;}
+.sidebar-logo-title{
+  font-family:'Fraunces',serif;
+  font-size:1.15rem;
+  color:white;
+  line-height:1.2;
+}
+.sidebar-logo-name{color:#F5C87A;font-style:italic;}
+.sidebar-logo-sub{font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;font-weight:400;}
+
+.sidebar-section-label{
+  padding:18px 20px 6px;
+  font-size:9.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  color:rgba(255,255,255,0.35);
+}
+.sidebar-nav{list-style:none;padding:0 10px;}
+.sidebar-nav li{margin-bottom:2px;}
+.sidebar-nav a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  color:rgba(255,255,255,0.65);
+  font-size:13.5px;
+  font-weight:500;
+  transition:all 0.15s;
+}
+.sidebar-nav a:hover,.sidebar-nav a.active{
+  background:rgba(255,255,255,0.1);
+  color:white;
+}
+.sidebar-nav a.active{background:rgba(192,67,42,0.25);color:#F5C87A;}
+.nav-icon{font-size:15px;width:18px;text-align:center;}
+
+.sidebar-weeks{padding:0 10px 10px;}
+.sidebar-months{display:flex;gap:6px;padding:8px 12px 4px;}
+.month-pill{
+  flex:1;
+  text-align:center;
+  padding:5px 4px;
+  border-radius:6px;
+  font-size:10.5px;
+  font-weight:700;
+  cursor:pointer;
+  background:rgba(255,255,255,0.07);
+  color:rgba(255,255,255,0.5);
+  transition:all 0.15s;
+  border:1px solid transparent;
+}
+.month-pill:hover{background:rgba(255,255,255,0.12);color:white;}
+.month-pill.active{background:rgba(192,67,42,0.3);color:#F5C87A;border-color:rgba(192,67,42,0.4);}
+.week-links{list-style:none;padding:0 2px;}
+.week-links li{margin-bottom:1px;}
+.week-links a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:7px 12px;
+  border-radius:7px;
+  text-decoration:none;
+  color:rgba(255,255,255,0.55);
+  font-size:12.5px;
+  font-weight:400;
+  transition:all 0.15s;
+}
+.week-links a:hover{background:rgba(255,255,255,0.08);color:white;}
+.week-links a.active{background:rgba(255,255,255,0.1);color:white;font-weight:600;}
+.week-badge{
+  font-size:9.5px;
+  padding:2px 7px;
+  border-radius:10px;
+  font-weight:700;
+}
+.wb-m1{background:rgba(26,95,168,0.3);color:#90C0F5;}
+.wb-m2{background:rgba(91,63,160,0.3);color:#C0A8F5;}
+.wb-m3{background:rgba(15,123,108,0.3);color:#70D0C0;}
+
+.sidebar-footer{
+  margin-top:auto;
+  padding:16px 20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-size:11.5px;
+  color:rgba(255,255,255,0.3);
+  text-align:center;
+}
+
+/* ============ PAGES ============ */
+.page{display:none;padding:36px 40px 60px;}
+.page.active{display:block;}
+
+/* ============ HERO ============ */
+.hero{
+  background:var(--navy);
+  color:white;
+  padding:48px 40px 44px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-80px;right:-80px;
+  width:320px;height:320px;
+  border-radius:50%;
+  border:1px solid rgba(201,144,58,0.15);
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-60px;left:200px;
+  width:200px;height:200px;
+  border-radius:50%;
+  border:1px solid rgba(192,67,42,0.2);
+}
+.hero-flag{font-size:36px;letter-spacing:6px;margin-bottom:14px;}
+.hero-greeting{
+  font-size:13px;
+  font-weight:600;
+  color:rgba(255,255,255,0.5);
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  margin-bottom:8px;
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:2.6rem;
+  font-weight:700;
+  line-height:1.12;
+  margin-bottom:12px;
+  color:white;
+}
+.hero h1 em{color:#F5C87A;font-style:italic;}
+.hero p{
+  font-size:14.5px;
+  color:rgba(255,255,255,0.7);
+  max-width:560px;
+  margin-bottom:26px;
+  line-height:1.75;
+}
+.hero-stats{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.hero-stat{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;
+  padding:10px 16px;
+  text-align:center;
+}
+.hero-stat-val{
+  font-family:'Fraunces',serif;
+  font-size:1.4rem;
+  font-weight:700;
+  color:#F5C87A;
+  line-height:1;
+}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.55);margin-top:3px;font-weight:500;}
+
+/* ============ SECTION HEADINGS ============ */
+.section-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:10.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--text3);
+  margin-bottom:6px;
+}
+.section-eyebrow::before{
+  content:'';
+  display:block;
+  width:20px;height:2px;
+  background:var(--terra);
+  border-radius:1px;
+}
+.section-title{
+  font-family:'Fraunces',serif;
+  font-size:1.55rem;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:20px;
+  line-height:1.2;
+}
+.section-intro{
+  font-size:14px;
+  color:var(--text2);
+  margin-bottom:24px;
+  max-width:660px;
+  line-height:1.8;
+}
+
+/* ============ CARDS ============ */
+.card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px 26px;
+  margin-bottom:16px;
+}
+.card-title{
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;
+  font-weight:600;
+  color:var(--navy);
+  margin-bottom:8px;
+}
+hr.section-divider{
+  border:none;
+  border-top:1px solid var(--border);
+  margin:36px 0;
+}
+
+/* ============ TRACKS ============ */
+.track-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-bottom:28px;
+}
+.track-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px 22px;
+  position:relative;
+  overflow:hidden;
+}
+.track-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+}
+.track-card:nth-child(1)::before{background:var(--terra);}
+.track-card:nth-child(2)::before{background:var(--gold);}
+.track-card:nth-child(3)::before{background:var(--teal);}
+.track-card:nth-child(4)::before{background:var(--purple);}
+.track-num{
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.8px;
+  color:var(--text3);
+  margin-bottom:6px;
+}
+.track-title{
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.track-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* ============ TIMELINE ============ */
+.timeline-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:28px;
+}
+.tl-block{padding:20px 20px 22px;border-right:1px solid var(--border);}
+.tl-block:last-child{border-right:none;}
+.tl-block:nth-child(1){background:var(--blue-bg);}
+.tl-block:nth-child(2){background:var(--purple-light);}
+.tl-block:nth-child(3){background:var(--teal-light);}
+.tl-label{
+  font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.9px;
+  margin-bottom:6px;
+}
+.tl-block:nth-child(1) .tl-label{color:var(--blue);}
+.tl-block:nth-child(2) .tl-label{color:var(--purple);}
+.tl-block:nth-child(3) .tl-label{color:var(--teal);}
+.tl-heading{
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;font-weight:700;
+  color:var(--navy);margin-bottom:6px;
+}
+.tl-level{
+  font-size:20px;font-family:'Fraunces',serif;
+  font-weight:700;color:var(--navy);
+  margin-bottom:6px;
+}
+.tl-desc{font-size:12.5px;color:var(--text2);line-height:1.55;}
+
+/* ============ RESOURCES ============ */
+.filter-bar{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-bottom:22px;
+}
+.filter-btn{
+  padding:7px 16px;
+  border-radius:20px;
+  border:1.5px solid var(--border);
+  background:var(--white);
+  font-size:12.5px;font-weight:600;
+  cursor:pointer;
+  color:var(--text2);
+  transition:all 0.15s;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.filter-btn:hover{border-color:var(--navy);color:var(--navy);}
+.filter-btn.active{
+  background:var(--navy);
+  border-color:var(--navy);
+  color:white;
+}
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:14px;
+}
+.res-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px 20px;
+  transition:box-shadow 0.15s, transform 0.15s;
+}
+.res-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,32,50,0.08);}
+.res-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.tag{
+  display:inline-block;
+  font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.5px;
+  padding:3px 9px;border-radius:10px;
+}
+.tag-app{background:var(--tag-app-bg);color:var(--tag-app);}
+.tag-audio{background:var(--tag-audio-bg);color:var(--tag-audio);}
+.tag-video{background:var(--tag-video-bg);color:var(--tag-video);}
+.tag-web{background:var(--tag-web-bg);color:var(--tag-web);}
+.tag-speak{background:var(--tag-speak-bg);color:var(--tag-speak);}
+.tag-free{background:#E6F5ED;color:#1A7A4A;}
+.res-name{font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:4px;}
+.res-url{font-size:11px;color:var(--text3);margin-bottom:8px;font-weight:500;}
+.res-desc{font-size:12.5px;color:var(--text2);line-height:1.6;margin-bottom:8px;}
+.res-when{
+  font-size:11.5px;font-style:italic;
+  color:var(--text3);
+  border-top:1px solid var(--border);
+  padding-top:8px;
+  margin-top:8px;
+}
+
+/* ============ DAILY ROUTINE ============ */
+.schedule-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:28px;
+}
+.sched-block{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px 18px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.sched-time{
+  background:var(--navy);
+  color:white;
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:11px;font-weight:700;
+  text-align:center;min-width:58px;line-height:1.3;
+  flex-shrink:0;
+}
+.sched-info strong{font-size:13.5px;font-weight:700;color:var(--navy);display:block;margin-bottom:3px;}
+.sched-info p{font-size:12.5px;color:var(--text2);}
+
+/* checklist */
+.checklist{list-style:none;}
+.checklist li{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:9px 0;
+  border-bottom:1px dashed var(--border);
+  font-size:13.5px;color:var(--text2);
+  cursor:pointer;
+}
+.checklist li:last-child{border-bottom:none;}
+.check-box{
+  width:18px;height:18px;
+  border:2px solid var(--border);
+  border-radius:5px;
+  flex-shrink:0;
+  margin-top:2px;
+  transition:all 0.15s;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:white;
+}
+.checklist li.done .check-box{
+  background:var(--teal);
+  border-color:var(--teal);
+}
+.checklist li.done span{text-decoration:line-through;color:var(--text3);}
+
+/* ============ WEEK PAGES ============ */
+.week-page{display:none;padding:36px 40px 60px;}
+.week-page.active{display:block;}
+.week-hero{
+  border-radius:14px;
+  padding:26px 30px;
+  margin-bottom:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+}
+.week-hero.m1{background:linear-gradient(135deg, #EEF4FB 0%, #E0EDFA 100%);border:1px solid #C8DCEF;}
+.week-hero.m2{background:linear-gradient(135deg, #EEE8FA 0%, #E4DAFF 100%);border:1px solid #CABDE0;}
+.week-hero.m3{background:linear-gradient(135deg, #E4F5F2 0%, #D0EDE8 100%);border:1px solid #AADAD2;}
+.week-hero-left{}
+.week-hero-tag{
+  font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.8px;
+  margin-bottom:6px;
+}
+.m1 .week-hero-tag{color:var(--blue);}
+.m2 .week-hero-tag{color:var(--purple);}
+.m3 .week-hero-tag{color:var(--teal);}
+.week-hero-title{
+  font-family:'Fraunces',serif;
+  font-size:1.5rem;font-weight:700;color:var(--navy);
+  margin-bottom:10px;
+}
+.week-hero-goal{
+  font-size:13.5px;color:var(--text2);
+  max-width:480px;line-height:1.7;
+}
+.week-hero-right{text-align:right;flex-shrink:0;}
+.week-cefr{
+  font-family:'Fraunces',serif;
+  font-size:2rem;font-weight:700;color:var(--navy);
+  margin-bottom:4px;
+}
+.week-days{font-size:11px;color:var(--text3);font-weight:600;}
+
+.focus-box{
+  background:var(--gold-light);
+  border:1px solid #EDD090;
+  border-left:4px solid var(--gold);
+  border-radius:10px;
+  padding:14px 18px;
+  font-size:13.5px;color:var(--navy);
+  margin-bottom:22px;
+  line-height:1.7;
+}
+.focus-box strong{color:var(--terra);}
+
+.week-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;}
+.week-col-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 20px;
+}
+.col-header{
+  font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.8px;
+  color:var(--text3);margin-bottom:12px;
+}
+.dot-list{list-style:none;}
+.dot-list li{
+  font-size:13px;color:var(--text2);
+  padding:5px 0 5px 14px;
+  position:relative;
+  border-bottom:1px dashed #EEE8E0;
+}
+.dot-list li:last-child{border-bottom:none;}
+.dot-list li::before{
+  content:'';position:absolute;left:0;top:12px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--terra);
+}
+
+.phrase-box{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 20px;
+  margin-bottom:22px;
+}
+.phrase-box .col-header{margin-bottom:10px;}
+.phrase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;}
+.phrase-item{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px 12px;
+}
+.phrase-es{font-weight:600;font-size:13px;color:var(--navy);margin-bottom:1px;}
+.phrase-en{font-size:11.5px;color:var(--text3);}
+
+.task-box{
+  background:var(--navy);
+  border-radius:12px;
+  padding:20px 22px;
+  margin-bottom:22px;
+}
+.task-box .col-header{color:rgba(255,255,255,0.45);}
+.task-box .dot-list li{
+  color:rgba(255,255,255,0.8);
+  border-bottom-color:rgba(255,255,255,0.08);
+}
+.task-box .dot-list li::before{background:#F5C87A;}
+
+.end-test{
+  background:var(--terra-light);
+  border:1px solid #ECC4BC;
+  border-radius:12px;
+  padding:18px 20px;
+}
+.end-test-title{
+  font-weight:700;font-size:13.5px;
+  color:var(--terra);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.end-test ul{list-style:none;}
+.end-test ul li{
+  font-size:13px;color:var(--text2);
+  padding:4px 0 4px 14px;position:relative;
+}
+.end-test ul li::before{
+  content:'✓';position:absolute;left:0;
+  color:var(--terra);font-weight:700;font-size:11px;
+}
+
+/* week nav buttons */
+.week-nav-bar{
+  display:flex;justify-content:space-between;
+  align-items:center;
+  margin-bottom:26px;
+}
+.btn-week-nav{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;
+  border-radius:8px;
+  border:1.5px solid var(--border);
+  background:var(--white);
+  font-size:12.5px;font-weight:600;
+  cursor:pointer;color:var(--text2);
+  transition:all 0.15s;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  text-decoration:none;
+}
+.btn-week-nav:hover{border-color:var(--navy);color:var(--navy);}
+.btn-week-nav.primary{background:var(--navy);border-color:var(--navy);color:white;}
+
+/* ============ OVERVIEW GRID ============ */
+.overview-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:12px;
+  margin-bottom:28px;
+}
+.ov-stat{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 16px;
+  text-align:center;
+}
+.ov-val{
+  font-family:'Fraunces',serif;
+  font-size:1.8rem;font-weight:700;
+  color:var(--navy);line-height:1;margin-bottom:4px;
+}
+.ov-label{font-size:11.5px;color:var(--text3);font-weight:600;}
+
+/* milestones */
+.milestone-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:28px;
+}
+.ms-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+}
+.ms-month{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text3);margin-bottom:6px;}
+.ms-level{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.ms-desc{font-size:12.5px;color:var(--text2);line-height:1.55;margin-bottom:12px;}
+.ms-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.ms-1{background:var(--blue-bg);color:var(--blue);}
+.ms-2{background:var(--purple-light);color:var(--purple);}
+.ms-3{background:var(--teal-light);color:var(--teal);}
+
+/* vocab targets */
+.vocab-table{
+  width:100%;border-collapse:collapse;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:28px;
+}
+.vocab-table th{
+  background:var(--navy);color:white;
+  padding:10px 16px;font-size:12px;
+  font-weight:700;text-align:left;letter-spacing:0.4px;
+}
+.vocab-table td{
+  padding:10px 16px;font-size:13px;
+  color:var(--text2);border-top:1px solid var(--border);
+}
+.vocab-table tr:hover td{background:#FAFAF8;}
+.vocab-num{font-weight:700;color:var(--navy);}
+
+/* tips */
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px;}
+.tip-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
+.tip-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--navy);color:white;
+  font-size:12.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:10px;
+}
+.tip-title{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:5px;}
+.tip-desc{font-size:12.5px;color:var(--text2);line-height:1.65;}
+
+/* weekly measures */
+.measure-table{
+  width:100%;border-collapse:collapse;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  margin-bottom:28px;
+}
+.measure-table th{background:var(--navy);color:white;padding:10px 16px;font-size:12px;font-weight:700;text-align:left;}
+.measure-table td{padding:11px 16px;font-size:13px;color:var(--text2);border-top:1px solid var(--border);}
+.measure-table td:first-child{font-weight:700;color:var(--navy);}
+
+/* alert box */
+.alert{
+  border-radius:12px;padding:16px 20px;
+  margin-bottom:20px;font-size:13.5px;line-height:1.7;
+}
+.alert-gold{background:var(--gold-light);border:1px solid #EDD090;border-left:4px solid var(--gold);}
+.alert-terra{background:var(--terra-light);border:1px solid #ECC4BC;border-left:4px solid var(--terra);}
+.alert-teal{background:var(--teal-light);border:1px solid #AADAD2;border-left:4px solid var(--teal);}
+.alert strong{font-weight:700;}
+
+/* home/overview shortcuts */
+.shortcut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
+.shortcut-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:14px;padding:20px;cursor:pointer;
+  transition:all 0.15s;text-decoration:none;
+  display:block;
+}
+.shortcut-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,32,50,0.08);border-color:var(--navy);}
+.sc-icon{font-size:24px;margin-bottom:8px;}
+.sc-title{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:4px;}
+.sc-desc{font-size:12px;color:var(--text3);}
+
+/* week index grid */
+.week-index{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
+.wi-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:12px;padding:14px 16px;cursor:pointer;
+  transition:all 0.15s;text-decoration:none;display:block;
+}
+.wi-card:hover{border-color:var(--navy);transform:translateY(-1px);}
+.wi-num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:var(--text3);margin-bottom:4px;}
+.wi-title{font-weight:600;font-size:13px;color:var(--navy);margin-bottom:4px;}
+.wi-badge{display:inline-block;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:8px;}
+.wi-m1{background:var(--blue-bg);color:var(--blue);}
+.wi-m2{background:var(--purple-light);color:var(--purple);}
+.wi-m3{background:var(--teal-light);color:var(--teal);}
+
+/* responsive */
+/* ============ RESOURCE LINKS ============ */
+a.rl {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,95,168,0.35);
+  font-weight: 600;
+  transition: color 0.15s, border-color 0.15s;
+}
+a.rl:hover { color: var(--navy); border-bottom-color: var(--navy); }
+.res-name a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(26,95,168,0.2);
+  transition: border-color 0.15s;
+}
+.res-name a:hover { border-bottom-color: var(--blue); }
+.res-url a {
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.res-url a::after { content: '↗'; font-size: 9px; opacity: 0.7; }
+.res-url a:hover { text-decoration: underline; }
+.task-box a.rl { color: #90C0F5; border-bottom-color: rgba(144,192,245,0.4); }
+.task-box a.rl:hover { color: white; border-bottom-color: white; }
+
+@media(max-width:768px){
+  .app-shell{flex-direction:column;}
+  .sidebar{width:100%;height:auto;position:relative;min-height:auto;}
+  .sidebar-weeks{display:none;}
+  .page, .week-page{padding:20px 18px 40px;}
+  .track-grid,.schedule-grid,.week-cols,.tips-grid,.milestone-row,.shortcut-grid{grid-template-columns:1fr;}
+  .timeline-strip{flex-direction:column;}
+  .tl-block{border-right:none;border-bottom:1px solid var(--border);}
+  .hero{padding:32px 20px 28px;}
+  .hero h1{font-size:1.9rem;}
+  .week-index{grid-template-columns:repeat(2,1fr);}
+  .overview-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<div class="app-shell">
+
+<!-- ======= SIDEBAR ======= -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-flag">🇪🇸 🇳🇵</div>
+    <div class="sidebar-logo-title">Spanish Plan for<br><span class="sidebar-logo-name">Prashanta</span></div>
+    <div class="sidebar-logo-sub">Zero → A1/A2 · 12 weeks</div>
+  </div>
+
+  <div class="sidebar-section-label">Navigation</div>
+  <ul class="sidebar-nav">
+    <li><a href="#" class="active" data-page="home" onclick="showPage('home');return false;"><span class="nav-icon">🏠</span> Home</a></li>
+    <li><a href="#" data-page="strategy" onclick="showPage('strategy');return false;"><span class="nav-icon">🎯</span> Strategy</a></li>
+    <li><a href="#" data-page="resources" onclick="showPage('resources');return false;"><span class="nav-icon">📦</span> Resources</a></li>
+    <li><a href="#" data-page="daily" onclick="showPage('daily');return false;"><span class="nav-icon">📅</span> Daily Routine</a></li>
+    <li><a href="#" data-page="tips" onclick="showPage('tips');return false;"><span class="nav-icon">💡</span> Tips & Rules</a></li>
+  </ul>
+
+  <div class="sidebar-section-label">Weekly Plan</div>
+  <div class="sidebar-weeks">
+    <div class="sidebar-months">
+      <div class="month-pill active" onclick="showWeekGroup('m1',this)">M1</div>
+      <div class="month-pill" onclick="showWeekGroup('m2',this)">M2</div>
+      <div class="month-pill" onclick="showWeekGroup('m3',this)">M3</div>
+    </div>
+    <ul class="week-links" id="week-links-m1">
+      <li><a href="#" onclick="showWeek('w1');return false;">Week 1 — Sounds &amp; Survival <span class="week-badge wb-m1">M1</span></a></li>
+      <li><a href="#" onclick="showWeek('w2');return false;">Week 2 — Numbers &amp; Identity <span class="week-badge wb-m1">M1</span></a></li>
+      <li><a href="#" onclick="showWeek('w3');return false;">Week 3 — Regular Verbs <span class="week-badge wb-m1">M1</span></a></li>
+      <li><a href="#" onclick="showWeek('w4');return false;">Week 4 — Places &amp; Directions <span class="week-badge wb-m1">M1</span></a></li>
+    </ul>
+    <ul class="week-links" id="week-links-m2" style="display:none;">
+      <li><a href="#" onclick="showWeek('w5');return false;">Week 5 — Food &amp; Shopping <span class="week-badge wb-m2">M2</span></a></li>
+      <li><a href="#" onclick="showWeek('w6');return false;">Week 6 — Professional Spanish <span class="week-badge wb-m2">M2</span></a></li>
+      <li><a href="#" onclick="showWeek('w7');return false;">Week 7 — Travel &amp; Future <span class="week-badge wb-m2">M2</span></a></li>
+      <li><a href="#" onclick="showWeek('w8');return false;">Week 8 — Problems &amp; Clients <span class="week-badge wb-m2">M2</span></a></li>
+    </ul>
+    <ul class="week-links" id="week-links-m3" style="display:none;">
+      <li><a href="#" onclick="showWeek('w9');return false;">Week 9 — The Past Tense <span class="week-badge wb-m3">M3</span></a></li>
+      <li><a href="#" onclick="showWeek('w10');return false;">Week 10 — Describing &amp; Comparing <span class="week-badge wb-m3">M3</span></a></li>
+      <li><a href="#" onclick="showWeek('w11');return false;">Week 11 — Client Conversations <span class="week-badge wb-m3">M3</span></a></li>
+      <li><a href="#" onclick="showWeek('w12');return false;">Week 12 — Final Assessment <span class="week-badge wb-m3">M3</span></a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-footer">All resources are free · 2025</div>
+</nav>
+
+<!-- ======= MAIN CONTENT ======= -->
+<div class="main-content">
+
+<!-- ====== HOME PAGE ====== -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-flag">🇪🇸 🇳🇵</div>
+    <div class="hero-greeting">Your personalised learning journey</div>
+    <h1>¡Hola, <em>Prashanta</em>!<br>Let's learn Spanish.</h1>
+    <p>This is your complete guide — built specifically for you as a Nepali and English speaker starting from absolute zero. Your professional future is the goal, and this plan is designed to make sure you reach it. Every resource in this guide is <strong>100% free</strong>.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val">12</div><div class="hero-stat-label">Weeks</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">90</div><div class="hero-stat-label">Min/day</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">A1+</div><div class="hero-stat-label">Target level</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">500+</div><div class="hero-stat-label">Words active</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">0€</div><div class="hero-stat-label">Cost</div></div>
+    </div>
+  </div>
+
+  <div style="padding:36px 40px 60px;">
+
+    <div class="alert alert-gold">
+      <strong>Prashanta, remember this:</strong> Your professional future depends on this plan — that makes you more motivated than 99% of language learners. Use that. Follow this plan for 90 days without stopping and you will be able to communicate in Spanish. That is not a promise — it is simply what happens when you follow it.
+    </div>
+
+    <div class="section-eyebrow">Quick access</div>
+    <h2 class="section-title">Where would you like to go?</h2>
+    <div class="shortcut-grid">
+      <a class="shortcut-card" onclick="showPage('resources');return false;" href="#">
+        <div class="sc-icon">📦</div>
+        <div class="sc-title">Resources</div>
+        <div class="sc-desc">All tools, apps and websites — filter by type</div>
+      </a>
+      <a class="shortcut-card" onclick="showPage('daily');return false;" href="#">
+        <div class="sc-icon">📅</div>
+        <div class="sc-title">Daily Routine</div>
+        <div class="sc-desc">Your 90-minute daily study schedule</div>
+      </a>
+      <a class="shortcut-card" onclick="showPage('strategy');return false;" href="#">
+        <div class="sc-icon">🎯</div>
+        <div class="sc-title">Strategy</div>
+        <div class="sc-desc">The method, milestones and vocabulary targets</div>
+      </a>
+    </div>
+
+    <div class="section-eyebrow">Weekly plan</div>
+    <h2 class="section-title">Jump to any week</h2>
+    <div class="week-index">
+      <a class="wi-card" onclick="showWeek('w1');return false;" href="#"><div class="wi-num">Week 1</div><div class="wi-title">Sounds &amp; Survival Phrases</div><span class="wi-badge wi-m1">Month 1</span></a>
+      <a class="wi-card" onclick="showWeek('w2');return false;" href="#"><div class="wi-num">Week 2</div><div class="wi-title">Numbers &amp; Identity</div><span class="wi-badge wi-m1">Month 1</span></a>
+      <a class="wi-card" onclick="showWeek('w3');return false;" href="#"><div class="wi-num">Week 3</div><div class="wi-title">Present Tense Verbs</div><span class="wi-badge wi-m1">Month 1</span></a>
+      <a class="wi-card" onclick="showWeek('w4');return false;" href="#"><div class="wi-num">Week 4</div><div class="wi-title">Places &amp; Directions</div><span class="wi-badge wi-m1">Month 1</span></a>
+      <a class="wi-card" onclick="showWeek('w5');return false;" href="#"><div class="wi-num">Week 5</div><div class="wi-title">Food &amp; Shopping</div><span class="wi-badge wi-m2">Month 2</span></a>
+      <a class="wi-card" onclick="showWeek('w6');return false;" href="#"><div class="wi-num">Week 6</div><div class="wi-title">Professional Spanish</div><span class="wi-badge wi-m2">Month 2</span></a>
+      <a class="wi-card" onclick="showWeek('w7');return false;" href="#"><div class="wi-num">Week 7</div><div class="wi-title">Travel &amp; Future</div><span class="wi-badge wi-m2">Month 2</span></a>
+      <a class="wi-card" onclick="showWeek('w8');return false;" href="#"><div class="wi-num">Week 8</div><div class="wi-title">Problems &amp; Clients</div><span class="wi-badge wi-m2">Month 2</span></a>
+      <a class="wi-card" onclick="showWeek('w9');return false;" href="#"><div class="wi-num">Week 9</div><div class="wi-title">The Past Tense</div><span class="wi-badge wi-m3">Month 3</span></a>
+      <a class="wi-card" onclick="showWeek('w10');return false;" href="#"><div class="wi-num">Week 10</div><div class="wi-title">Describing &amp; Comparing</div><span class="wi-badge wi-m3">Month 3</span></a>
+      <a class="wi-card" onclick="showWeek('w11');return false;" href="#"><div class="wi-num">Week 11</div><div class="wi-title">Client Conversations</div><span class="wi-badge wi-m3">Month 3</span></a>
+      <a class="wi-card" onclick="showWeek('w12');return false;" href="#"><div class="wi-num">Week 12</div><div class="wi-title">Final Assessment</div><span class="wi-badge wi-m3">Month 3</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ====== STRATEGY PAGE ====== -->
+<div id="page-strategy" class="page">
+  <div class="hero">
+    <h1>Strategy &amp;<br><em>Learning Method</em></h1>
+    <p>How this plan is built, what level you are targeting, and why this approach works for your situation.</p>
+  </div>
+  <div style="padding:36px 40px 60px;">
+
+    <div class="section-eyebrow">The four tracks</div>
+    <h2 class="section-title">You will learn on four tracks at once</h2>
+    <div class="track-grid">
+      <div class="track-card"><div class="track-num">Track 1</div><div class="track-title">Survival Spanish First</div><div class="track-desc">From day one you learn phrases you can actually use: greetings, asking for help, introducing yourself. This prevents the common mistake of studying grammar for weeks without being able to say a word.</div></div>
+      <div class="track-card"><div class="track-num">Track 2</div><div class="track-title">Pronunciation Before Grammar</div><div class="track-desc">Spanish pronunciation is regular and logical — once you know the rules, you can read anything. Master the five vowels, word stress, and key sounds (r, rr, ñ, j, ll) in the first two weeks.</div></div>
+      <div class="track-card"><div class="track-num">Track 3</div><div class="track-title">Grammar as a Tool, Not Theory</div><div class="track-desc">You study grammar only when it helps you communicate. No abstract rules — only patterns you can use immediately. Each week introduces one grammar structure in context.</div></div>
+      <div class="track-card"><div class="track-num">Track 4</div><div class="track-title">Speaking From Week 1</div><div class="track-desc">Apps alone are not enough. You must speak every day — out loud, to yourself, to a language exchange partner. Record yourself on your phone. Listening + speaking = real learning.</div></div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-eyebrow">Level targets</div>
+    <h2 class="section-title">Where you will be, month by month</h2>
+    <div class="timeline-strip">
+      <div class="tl-block"><div class="tl-label">End of Month 1</div><div class="tl-level">A1</div><div class="tl-desc">Introduce yourself, ask basic questions, give directions, hold a 2-minute slow conversation on familiar topics.</div></div>
+      <div class="tl-block"><div class="tl-label">End of Month 2</div><div class="tl-level">A1+</div><div class="tl-desc">Talk about work, handle food/travel/schedule situations, write a 100-word introduction, hold a 4-minute conversation.</div></div>
+      <div class="tl-block"><div class="tl-label">End of Month 3</div><div class="tl-level">A1/A2</div><div class="tl-desc">Use past and future tenses, help Spanish-speaking clients, describe places and experiences, understand beginner videos without subtitles.</div></div>
+    </div>
+
+    <div class="alert alert-terra" style="margin-bottom:28px;">
+      <strong>Honest target for Prashanta:</strong> A strong A1 with the beginning of A2 is the realistic goal in 3 months at 90 min/day. This is not a limitation — A1 is highly functional for professional use. With this foundation, reaching solid A2 by month 5–6 is very achievable.
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-eyebrow">Vocabulary targets</div>
+    <h2 class="section-title">What you need to know by week 12</h2>
+    <table class="vocab-table">
+      <thead><tr><th>Category</th><th>Target (active words/phrases)</th></tr></thead>
+      <tbody>
+        <tr><td>Core survival phrases</td><td class="vocab-num">100</td></tr>
+        <tr><td>Personal information (name, age, origin, family, work)</td><td class="vocab-num">80</td></tr>
+        <tr><td>Work and professional phrases</td><td class="vocab-num">100</td></tr>
+        <tr><td>Food, shopping, travel, hotel</td><td class="vocab-num">150</td></tr>
+        <tr><td>Verbs (regular + key irregulars)</td><td class="vocab-num">80–100</td></tr>
+        <tr><td>Connectors and small words</td><td class="vocab-num">50</td></tr>
+        <tr><td style="font-weight:700;color:var(--navy);">Total active vocabulary</td><td class="vocab-num" style="font-size:15px;color:var(--terra);">500–700</td></tr>
+      </tbody>
+    </table>
+    <p class="section-intro"><strong>Important:</strong> "Active" means you can use a word when speaking — not only recognize it when you read it. Learn full phrases, not isolated words.</p>
+
+    <hr class="section-divider">
+
+    <div class="section-eyebrow">Weekly measurement</div>
+    <h2 class="section-title">Every Sunday, check these five things</h2>
+    <table class="measure-table">
+      <thead><tr><th>Skill</th><th>Question to ask yourself</th></tr></thead>
+      <tbody>
+        <tr><td>Vocabulary</td><td>Did I learn and review at least 80–100 useful words/phrases this week?</td></tr>
+        <tr><td>Listening</td><td>Did I listen to Spanish at least 5 out of 6 study days?</td></tr>
+        <tr><td>Speaking</td><td>Did I record myself or speak with a language partner at least 3 times?</td></tr>
+        <tr><td>Grammar</td><td>Can I use this week's grammar point in real sentences right now?</td></tr>
+        <tr><td>Confidence</td><td>Can I do one useful real-life task in Spanish better than last week?</td></tr>
+      </tbody>
+    </table>
+    <div class="alert alert-teal">Do not measure success by "I understand everything." Measure success by: <strong>Can I do more things in Spanish than last week?</strong></div>
+  </div>
+</div>
+
+<!-- ====== RESOURCES PAGE ====== -->
+<div id="page-resources" class="page">
+  <div class="hero">
+    <h1>Your <em>Resource Kit</em></h1>
+    <p>Every tool you need is free. Use the filters to find the right resource for each moment of your day.</p>
+  </div>
+  <div style="padding:36px 40px 60px;">
+
+    <div class="section-eyebrow">Filter by type</div>
+    <h2 class="section-title">All resources</h2>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRes('all',this)">All</button>
+      <button class="filter-btn" onclick="filterRes('app',this)">📱 Apps</button>
+      <button class="filter-btn" onclick="filterRes('audio',this)">🎧 Audio / Podcasts</button>
+      <button class="filter-btn" onclick="filterRes('video',this)">🎬 Video</button>
+      <button class="filter-btn" onclick="filterRes('web',this)">🌐 Websites</button>
+      <button class="filter-btn" onclick="filterRes('speak',this)">🗣️ Speaking Practice</button>
+    </div>
+
+    <div class="resource-grid" id="resource-grid">
+
+      <div class="res-card" data-type="app">
+        <div class="res-tags"><span class="tag tag-app">App</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.languagetransfer.org/spanish" target="_blank" rel="noopener">Language Transfer — Complete Spanish</a></div>
+        <div class="res-url"><a href="https://www.languagetransfer.org/spanish" target="_blank" rel="noopener">languagetransfer.org</a></div>
+        <div class="res-desc">40 audio lessons by an exceptional teacher. The single best free Spanish course. It teaches you to think in Spanish, not translate — and it explains why the language works the way it does. Essential for Weeks 1–8.</div>
+        <div class="res-when">⏱ Use: Weeks 1–8 · 20 min/day · Listen actively, pause and answer before the teacher.</div>
+      </div>
+
+      <div class="res-card" data-type="app">
+        <div class="res-tags"><span class="tag tag-app">App</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.duolingo.com" target="_blank" rel="noopener">Duolingo</a></div>
+        <div class="res-url"><a href="https://www.duolingo.com" target="_blank" rel="noopener">duolingo.com</a></div>
+        <div class="res-desc">The best free daily habit app. Gamified, simple, and very effective for vocabulary and light grammar. It is NOT enough by itself, but it is excellent as a daily discipline tool. Set a streak and never break it.</div>
+        <div class="res-when">⏱ Use: Every single day · 15–20 min · Complete 1–2 lessons. Repeat all sentences aloud.</div>
+      </div>
+
+      <div class="res-card" data-type="app">
+        <div class="res-tags"><span class="tag tag-app">App</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://apps.ankiweb.net" target="_blank" rel="noopener">Anki (Spaced Repetition Flashcards)</a></div>
+        <div class="res-url"><a href="https://apps.ankiweb.net" target="_blank" rel="noopener">apps.ankiweb.net</a></div>
+        <div class="res-desc">The most scientifically proven vocabulary tool. Shows you cards right before you forget them. Download the <a href="https://ankiweb.net/shared/info/712616015" target="_blank" rel="noopener" class="rl">Spanish Core 2000 deck</a> free. Do not make cards with isolated words — always write full phrases (e.g. "Trabajo en turismo").</div>
+        <div class="res-when">⏱ Use: Every morning · 15 min · Review cards + add 5–10 new phrases. Say each one aloud.</div>
+      </div>
+
+      <div class="res-card" data-type="app">
+        <div class="res-tags"><span class="tag tag-app">App</span><span class="tag tag-free">Free (basic)</span></div>
+        <div class="res-name"><a href="https://www.busuu.com/en/course/learn-spanish-online" target="_blank" rel="noopener">Busuu</a></div>
+        <div class="res-url"><a href="https://www.busuu.com/en/course/learn-spanish-online" target="_blank" rel="noopener">busuu.com</a></div>
+        <div class="res-desc">Structured CEFR-based Spanish course. Better than Duolingo for grammar structure and level tracking. The free version covers A1 content fully. Use this OR Duolingo — not both.</div>
+        <div class="res-when">⏱ Use: Weeks 1–12 · 15–20 min/day · As an alternative to Duolingo if you prefer more structure.</div>
+      </div>
+
+      <div class="res-card" data-type="audio">
+        <div class="res-tags"><span class="tag tag-audio">Audio</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://coffeebreaklanguages.com/completespanish/" target="_blank" rel="noopener">Coffee Break Spanish (Podcast)</a></div>
+        <div class="res-url"><a href="https://coffeebreaklanguages.com/completespanish/" target="_blank" rel="noopener">coffeebreaklanguages.com</a></div>
+        <div class="res-desc">Structured podcast going from A1 to advanced. A Scottish teacher and Spanish student work through real conversations. Clear explanations, natural pace. Season 1 is perfect for Months 1–2.</div>
+        <div class="res-when">⏱ Use: Weeks 3–12 · 20 min/day · During commute or exercise.</div>
+      </div>
+
+      <div class="res-card" data-type="audio">
+        <div class="res-tags"><span class="tag tag-audio">Audio</span><span class="tag tag-free">Free (beginner)</span></div>
+        <div class="res-name"><a href="https://www.newsinslowspanish.com/beginner" target="_blank" rel="noopener">News in Slow Spanish</a></div>
+        <div class="res-url"><a href="https://www.newsinslowspanish.com/beginner" target="_blank" rel="noopener">newsinslowspanish.com</a></div>
+        <div class="res-desc">Real news stories spoken slowly and clearly. The beginner podcast episodes include transcripts. Do not worry if you only understand 30–40% at first — that is normal and it improves rapidly.</div>
+        <div class="res-when">⏱ Use: From Week 9 · 2–3 episodes/week · Use the transcript to check understanding.</div>
+      </div>
+
+      <div class="res-card" data-type="video">
+        <div class="res-tags"><span class="tag tag-video">Video</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.dreamingspanish.com" target="_blank" rel="noopener">Dreaming Spanish</a></div>
+        <div class="res-url"><a href="https://www.dreamingspanish.com" target="_blank" rel="noopener">dreamingspanish.com</a></div> · <a href="https://www.youtube.com/@DreamingSpanish" target="_blank" rel="noopener" class="rl" style="font-size:11px;">YouTube</a>
+        <div class="res-desc">Videos in Spanish only — spoken slowly and clearly with visual context. The most effective comprehensible input resource. Start with "Superbeginner" playlist. The goal is to train your ear, not understand every word.</div>
+        <div class="res-when">⏱ Use: Weeks 1–12 · 20 min/day · Superbeginner first, then Beginner from Week 6.</div>
+      </div>
+
+      <div class="res-card" data-type="video">
+        <div class="res-tags"><span class="tag tag-video">Video</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.youtube.com/@EasySpanish" target="_blank" rel="noopener">Easy Spanish (YouTube)</a></div>
+        <div class="res-url"><a href="https://www.youtube.com/@EasySpanish" target="_blank" rel="noopener">youtube.com/@EasySpanish</a></div>
+        <div class="res-desc">Street interviews with real Spanish speakers. Shows how natural, conversational Spanish sounds. Good to add from Weeks 7–8 once you have more vocabulary. Has subtitles in both Spanish and English.</div>
+        <div class="res-when">⏱ Use: Weeks 7–12 · 1–2 videos/week · Focus on listening and real-world vocabulary.</div>
+      </div>
+
+      <div class="res-card" data-type="web">
+        <div class="res-tags"><span class="tag tag-web">Website</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.spanishdict.com" target="_blank" rel="noopener">SpanishDict</a></div>
+        <div class="res-url"><a href="https://www.spanishdict.com" target="_blank" rel="noopener">spanishdict.com</a></div>
+        <div class="res-desc">The best Spanish-English reference. Every word has pronunciation audio, example sentences, and verb conjugation tables. Use it when you need to check a word — do not translate full sentences, create your own.</div>
+        <div class="res-when">⏱ Use: Every day as a reference · Also use for grammar guides and verb conjugation tables.</div>
+      </div>
+
+      <div class="res-card" data-type="web">
+        <div class="res-tags"><span class="tag tag-web">Website</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.bbc.com/mundo" target="_blank" rel="noopener">BBC Mundo</a></div>
+        <div class="res-url"><a href="https://www.bbc.com/mundo" target="_blank" rel="noopener">mundo.bbc.com</a></div>
+        <div class="res-desc">Real Spanish news, well-written and clear. Start by reading headlines only (Week 10). Then short articles with a dictionary. This is where you encounter real professional Spanish vocabulary.</div>
+        <div class="res-when">⏱ Use: From Week 10 · Headlines only first, then short articles · 10 min/day.</div>
+      </div>
+
+      <div class="res-card" data-type="web">
+        <div class="res-tags"><span class="tag tag-web">Website</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.rtve.es" target="_blank" rel="noopener">RTVE (Spanish public TV)</a></div>
+        <div class="res-url"><a href="https://www.rtve.es" target="_blank" rel="noopener">rtve.es</a></div>
+        <div class="res-desc">Spanish public broadcaster. Watch short news videos with Spanish subtitles from Week 10. Real Spanish from real journalists — perfect for professional listening practice.</div>
+        <div class="res-when">⏱ Use: Weeks 10–12 · Short news clips · 10 min/day with subtitles.</div>
+      </div>
+
+      <div class="res-card" data-type="speak">
+        <div class="res-tags"><span class="tag tag-speak">Speaking</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.italki.com" target="_blank" rel="noopener">italki (Language Exchange)</a></div>
+        <div class="res-url"><a href="https://www.italki.com" target="_blank" rel="noopener">italki.com</a></div>
+        <div class="res-desc">Find free Spanish language exchange partners — you help them with English or Nepali, they help you with Spanish. This is your most powerful speaking resource. Even one session per week makes a huge difference.</div>
+        <div class="res-when">⏱ Use: From Week 3 · 1–2 sessions/week · Tell partner: "I am a complete beginner, please speak slowly."</div>
+      </div>
+
+      <div class="res-card" data-type="speak">
+        <div class="res-tags"><span class="tag tag-speak">Speaking</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name"><a href="https://www.hellotalk.com" target="_blank" rel="noopener">HelloTalk</a></div>
+        <div class="res-url"><a href="https://www.hellotalk.com" target="_blank" rel="noopener">hellotalk.com</a></div>
+        <div class="res-desc">Chat with native Spanish speakers by text, voice message, or call. Native speakers correct your messages directly. Great for written practice and building confidence before live conversations.</div>
+        <div class="res-when">⏱ Use: From Week 2 · Daily text messages in Spanish · 10 min/day.</div>
+      </div>
+
+      <div class="res-card" data-type="speak">
+        <div class="res-tags"><span class="tag tag-speak">Speaking</span><span class="tag tag-free">Free</span></div>
+        <div class="res-name">Your phone voice recorder</div>
+        <div class="res-url">Built-in app on any phone</div>
+        <div class="res-desc">The most underrated tool in language learning. Record yourself for 30–90 seconds in Spanish every single day. Listen back. Correct one or two mistakes. Re-record. This builds pronunciation and confidence faster than anything else.</div>
+        <div class="res-when">⏱ Use: Every single day from Week 1 · 10 min · Keep your recordings to hear your progress.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ====== DAILY ROUTINE PAGE ====== -->
+<div id="page-daily" class="page">
+  <div class="hero">
+    <h1>Your Daily<br><em>Study Routine</em></h1>
+    <p>90 minutes every day, 6 days a week. Same structure, every day. Consistency is more important than intensity.</p>
+  </div>
+  <div style="padding:36px 40px 60px;">
+    <div class="alert alert-gold">
+      <strong>The golden rule:</strong> Study 6 days a week. Never miss two days in a row. Even on a bad day, 20 minutes of Anki + one voice recording counts. That is enough to maintain your progress. Missing a week is not.
+    </div>
+
+    <div class="section-eyebrow">Monday to Friday</div>
+    <h2 class="section-title">Your 90-minute daily block</h2>
+    <div class="schedule-grid">
+      <div class="sched-block">
+        <div class="sched-time">🌅<br>Morning<br>15 min</div>
+        <div class="sched-info"><strong>Anki — Vocabulary review</strong><p>Review cards from yesterday. Add 5–10 new phrases. Say every phrase out loud. Do this before breakfast.</p></div>
+      </div>
+      <div class="sched-block">
+        <div class="sched-time">🎧<br>Commute<br>20 min</div>
+        <div class="sched-info"><strong>Audio — Language Transfer or podcast</strong><p>Listen while walking or on transport. Pause and answer before the teacher. Repeat aloud.</p></div>
+      </div>
+      <div class="sched-block">
+        <div class="sched-time">📱<br>Break<br>20 min</div>
+        <div class="sched-info"><strong>Duolingo or Busuu — Structured lesson</strong><p>One main app only. Complete 1–2 short lessons. Write down 3 useful phrases in your notebook.</p></div>
+      </div>
+      <div class="sched-block">
+        <div class="sched-time">🎬<br>Afternoon<br>20 min</div>
+        <div class="sched-info"><strong>Dreaming Spanish — Listening input</strong><p>Superbeginner videos (Weeks 1–5), then Beginner. Do not translate every word — train your ear.</p></div>
+      </div>
+      <div class="sched-block">
+        <div class="sched-time">🌙<br>Evening<br>15 min</div>
+        <div class="sched-info"><strong>Speaking — Record yourself + write</strong><p>Record 60–90 seconds of Spanish on your phone. Write 5 sentences in your Spanish diary. Speak every sentence out loud.</p></div>
+      </div>
+      <div class="sched-block">
+        <div class="sched-time">📖<br>Anytime</div>
+        <div class="sched-info"><strong>SpanishDict — Dictionary support</strong><p>Use when you need to check a word, pronunciation, or verb conjugation. Do not translate long texts.</p></div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:32px;">Weekend</div>
+    <h2 class="section-title">Saturday and Sunday</h2>
+    <div class="schedule-grid">
+      <div class="sched-block">
+        <div class="sched-time">📅<br>Saturday<br>2h total</div>
+        <div class="sched-info"><strong>Speaking + Review day</strong><p>45 min: language exchange on italki or HelloTalk. 45 min: review the whole week's material. 30 min: write a longer text (diary entry, professional description).</p></div>
+      </div>
+      <div class="sched-block">
+        <div class="sched-time">☀️<br>Sunday<br>Light only</div>
+        <div class="sched-info"><strong>Rest + light review + self-test</strong><p>Anki review only (15 min). Watch one Spanish video for fun. Do the weekly self-test (5 questions on the strategy page). Plan next week.</p></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-eyebrow">Daily checklist</div>
+    <h2 class="section-title">Click to mark as done — today's checklist</h2>
+    <div class="card">
+      <ul class="checklist" id="daily-checklist">
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Anki review (15 min) — reviewed cards, added 5+ new phrases, said each one aloud</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Language Transfer or podcast (20 min) — listened actively, paused and answered</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Duolingo or Busuu (20 min) — completed 1–2 lessons, wrote 3 phrases in notebook</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Dreaming Spanish or listening video (20 min) — trained my ear, watched without translating every word</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Speaking recording (10 min) — recorded 60+ seconds of Spanish, listened back, noted one mistake</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Spanish diary (5 sentences minimum) — wrote about my day, a plan, or a description</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Spoke Spanish out loud — not just in my head, but with my mouth, at least 10 minutes total</span></li>
+      </ul>
+    </div>
+    <div class="alert alert-teal">
+      Prashanta, this checklist resets when you reload the page — use it as a reminder during each study session, not as a permanent tracker. Keep a separate paper notebook where you tick off each day.
+    </div>
+  </div>
+</div>
+
+<!-- ====== TIPS PAGE ====== -->
+<div id="page-tips" class="page">
+  <div class="hero">
+    <h1>Rules for<br><em>Success</em></h1>
+    <p>These are not suggestions — they are the habits that separate people who learn Spanish from people who almost learn Spanish.</p>
+  </div>
+  <div style="padding:36px 40px 60px;">
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-num">1</div><div class="tip-title">Speak before you feel ready</div><div class="tip-desc">You will never feel ready. Everyone feels foolish in the first weeks. Start speaking badly and improve. Silence is the enemy of language learning.</div></div>
+      <div class="tip-card"><div class="tip-num">2</div><div class="tip-title">Learn full phrases, not isolated words</div><div class="tip-desc">Never learn "hotel = hotel." Learn: "El hotel está cerca." "La habitación está lista." "Voy al hotel." Context makes vocabulary stick permanently.</div></div>
+      <div class="tip-card"><div class="tip-num">3</div><div class="tip-title">Repeat key phrases until they are automatic</div><div class="tip-desc">Professional Spanish requires instant phrases. You should not need to think when someone says ¿Qué necesita? — the answer should come automatically.</div></div>
+      <div class="tip-card"><div class="tip-num">4</div><div class="tip-title">Stop translating — from Week 5</div><div class="tip-desc">Translation is useful at the very beginning. From Week 5, train your brain to go directly from situation to Spanish: "Quiero agua. Necesito ayuda. El cliente está aquí." No English step in between.</div></div>
+      <div class="tip-card"><div class="tip-num">5</div><div class="tip-title">Record yourself every day</div><div class="tip-desc">Uncomfortable? Yes. Powerful? Extremely. Listen back, correct one or two mistakes, re-record. Keep your recordings. In three months you will be amazed at the difference.</div></div>
+      <div class="tip-card"><div class="tip-num">6</div><div class="tip-title">Change your phone to Spanish</div><div class="tip-desc">From Week 3, switch your phone language to Spanish. You will see 100+ Spanish words every day with zero extra effort. Uncomfortable the first week — highly effective by the third.</div></div>
+      <div class="tip-card"><div class="tip-num">7</div><div class="tip-title">Protect your study time like work</div><div class="tip-desc">If your professional future depends on Spanish, Spanish must be treated like a job, not a hobby. Block 90 minutes in your calendar. Do not cancel it for small reasons.</div></div>
+      <div class="tip-card"><div class="tip-num">8</div><div class="tip-title">Embrace confusion — it means you are learning</div><div class="tip-desc">When something confuses you, that discomfort is your brain working. Do not stop and look up everything. Keep going — context often clarifies. Only look up what blocks comprehension.</div></div>
+      <div class="tip-card"><div class="tip-num">9</div><div class="tip-title">Connect with real Spanish speakers</div><div class="tip-desc">italki and HelloTalk are not optional from Week 3. One real human conversation will give you more motivation than a week of solo study. People are the real reward of language learning.</div></div>
+      <div class="tip-card"><div class="tip-num">10</div><div class="tip-title">Plateaus are not failure — push through</div><div class="tip-desc">Around Weeks 3–4 and again Weeks 7–8, many learners feel they have stopped improving. They have not — their brain is consolidating. The breakthrough comes right after the plateau. Keep going.</div></div>
+    </div>
+
+    <hr class="section-divider">
+    <div class="section-eyebrow">After the 3 months</div>
+    <h2 class="section-title">What comes next for Prashanta</h2>
+    <div class="card">
+      <div class="card-title">Month 4–6: The A2 Plan</div>
+      <p style="font-size:13.5px;color:var(--text2);margin-bottom:14px;">After completing this plan, continue immediately with a 3-month A2 programme. Do not stop — language proficiency fades fast if you pause. Your next objectives:</p>
+      <ul class="dot-list">
+        <li>More past tense practice — imperfect tense, storytelling in Spanish</li>
+        <li>More spontaneous conversation — less scripted, more reactive</li>
+        <li>More professional vocabulary — client emails, meeting language, presentations</li>
+        <li>More listening without subtitles or transcripts</li>
+        <li>Writing emails and professional WhatsApp messages in Spanish</li>
+        <li>Consider DELE A2 exam for a formal credential — useful for your career</li>
+      </ul>
+    </div>
+    <div class="alert alert-teal" style="margin-top:16px;">
+      <strong>The professional milestone:</strong> B1 is where you begin to function independently in Spanish. A1 helps you survive. A2 helps you manage situations. <strong>B1 is where your professional value in Spanish really begins.</strong> This plan builds the foundation for that journey.
+    </div>
+  </div>
+</div>
+
+<!-- ====== WEEK PAGES ====== -->
+
+<!-- WEEK 1 -->
+<div id="page-w1" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar">
+      <button class="btn-week-nav" onclick="showPage('home')">← Back to home</button>
+      <button class="btn-week-nav primary" onclick="showWeek('w2')">Week 2 →</button>
+    </div>
+    <div class="week-hero m1">
+      <div class="week-hero-left">
+        <div class="week-hero-tag">Month 1 — Week 1</div>
+        <div class="week-hero-title">Sounds, Alphabet &amp; Survival Phrases</div>
+        <div class="week-hero-goal">Goal: Feel comfortable with Spanish sounds and basic phrases. By the end of this week, Prashanta, you should be able to introduce yourself in 5 sentences, say 10 greetings, and read any Spanish word correctly.</div>
+      </div>
+      <div class="week-hero-right"><div class="week-cefr">Pre-A1</div><div class="week-days">Days 1–7</div></div>
+    </div>
+    <div class="focus-box"><strong>🎯 Priority this week:</strong> Master Spanish pronunciation before anything else. Spanish has 5 short, clear vowels (a, e, i, o, u) — very different from English. Once you know pronunciation rules, you can read any Spanish word correctly. Do not rush past this week — correct pronunciation now saves months of bad habits later.</div>
+    <div class="week-cols">
+      <div class="week-col-card">
+        <div class="col-header">What to learn</div>
+        <ul class="dot-list">
+          <li>The Spanish alphabet — 27 letters</li>
+          <li>The 5 pure Spanish vowels (a, e, i, o, u)</li>
+          <li>Key sounds: r, rr, ñ, j, ll, c, z, h</li>
+          <li>Word stress rules</li>
+          <li>Subject pronouns: yo, tú, usted, él, ella, nosotros</li>
+          <li>Verb ser: soy, eres, es, somos, son</li>
+          <li>Gender: el/la, un/una</li>
+          <li>Greetings and polite words (see phrases below)</li>
+        </ul>
+      </div>
+      <div class="week-col-card">
+        <div class="col-header">Resources to use this week</div>
+        <ul class="dot-list">
+          <li>Language Transfer: Lessons 1–5 (active listening, pause &amp; answer)</li>
+          <li>Duolingo or Busuu: Start from zero, 15 min/day</li>
+          <li>Anki: Install + download Spanish Core 2000 deck</li>
+          <li>YouTube: Search "Spanish pronunciation guide for beginners"</li>
+          <li>Dreaming Spanish: Superbeginner Playlist — videos 1–3</li>
+          <li>HelloTalk: Install and read Spanish messages from others</li>
+          <li>SpanishDict: Look up every new word you learn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phrase-box">
+      <div class="col-header">Essential phrases to memorise this week</div>
+      <div class="phrase-grid">
+        <div class="phrase-item"><div class="phrase-es">Hola / Buenos días</div><div class="phrase-en">Hello / Good morning</div></div>
+        <div class="phrase-item"><div class="phrase-es">Buenas tardes/noches</div><div class="phrase-en">Good afternoon/evening</div></div>
+        <div class="phrase-item"><div class="phrase-es">Por favor / Gracias</div><div class="phrase-en">Please / Thank you</div></div>
+        <div class="phrase-item"><div class="phrase-es">Perdón / Disculpe</div><div class="phrase-en">Sorry / Excuse me</div></div>
+        <div class="phrase-item"><div class="phrase-es">Me llamo Prashanta</div><div class="phrase-en">My name is Prashanta</div></div>
+        <div class="phrase-item"><div class="phrase-es">Soy de Nepal</div><div class="phrase-en">I am from Nepal</div></div>
+        <div class="phrase-item"><div class="phrase-es">Hablo nepalí e inglés</div><div class="phrase-en">I speak Nepali and English</div></div>
+        <div class="phrase-item"><div class="phrase-es">No hablo mucho español</div><div class="phrase-en">I don't speak much Spanish</div></div>
+        <div class="phrase-item"><div class="phrase-es">¿Habla inglés?</div><div class="phrase-en">Do you speak English?</div></div>
+        <div class="phrase-item"><div class="phrase-es">¿Puede repetir, por favor?</div><div class="phrase-en">Can you repeat, please?</div></div>
+        <div class="phrase-item"><div class="phrase-es">Más despacio, por favor</div><div class="phrase-en">More slowly, please</div></div>
+        <div class="phrase-item"><div class="phrase-es">No entiendo</div><div class="phrase-en">I don't understand</div></div>
+      </div>
+    </div>
+    <div class="task-box">
+      <div class="col-header">Daily tasks — do all of these every day this week</div>
+      <ul class="dot-list">
+        <li>Language Transfer: 1 lesson per day (20 min) — pause, answer aloud, repeat</li>
+        <li>Duolingo/Busuu: 15 min — repeat every sentence out loud</li>
+        <li>Anki: 15 min morning — review cards + add new phrases with full sentences</li>
+        <li>Dreaming Spanish: 1 Superbeginner video (20 min) — do not translate everything</li>
+        <li>Voice recording: 30–60 seconds introducing yourself in Spanish — listen back</li>
+        <li>Reading aloud: Pick 5 Spanish sentences from SpanishDict and read them clearly</li>
+      </ul>
+    </div>
+    <div class="end-test">
+      <div class="end-test-title">📋 End-of-week self-test</div>
+      <ul>
+        <li>Say 10 greetings and polite phrases without reading</li>
+        <li>Introduce yourself in 5 sentences from memory</li>
+        <li>Respond correctly to: ¿Cómo te llamas? ¿De dónde eres? ¿Hablas español?</li>
+        <li>Read 3 Spanish sentences aloud without pronunciation mistakes</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 2 -->
+<div id="page-w2" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar">
+      <button class="btn-week-nav" onclick="showWeek('w1')">← Week 1</button>
+      <button class="btn-week-nav primary" onclick="showWeek('w3')">Week 3 →</button>
+    </div>
+    <div class="week-hero m1">
+      <div class="week-hero-left"><div class="week-hero-tag">Month 1 — Week 2</div><div class="week-hero-title">Numbers, Countries &amp; Personal Identity</div><div class="week-hero-goal">Goal: Talk about yourself and ask simple personal questions. By end of Week 2, you can give your phone number, spell your name, describe your profession, and ask 5 personal questions in Spanish.</div></div>
+      <div class="week-hero-right"><div class="week-cefr">Pre-A1</div><div class="week-days">Days 8–14</div></div>
+    </div>
+    <div class="focus-box"><strong>🎯 Priority this week:</strong> Learn that Spanish nouns have grammatical gender — every noun is either masculine (el/un) or feminine (la/una). This is new for English and Nepali speakers. From now on, never memorise a noun alone — always learn it with its article: "el hotel", "la habitación", "un cliente", "una visita".</div>
+    <div class="week-cols">
+      <div class="week-col-card">
+        <div class="col-header">What to learn</div>
+        <ul class="dot-list">
+          <li>Numbers 0–100</li>
+          <li>Countries and nationalities</li>
+          <li>Professions (at least 20 important ones)</li>
+          <li>Basic family vocabulary</li>
+          <li>Noun gender: el/la, un/una + plural (-s or -es)</li>
+          <li>Verb tener: tengo, tienes, tiene</li>
+          <li>Verb vivir: vivo, vives, vive</li>
+          <li>Question words: ¿Qué? ¿Quién? ¿Dónde? ¿Cuánto? ¿Cómo? ¿Cuál?</li>
+        </ul>
+      </div>
+      <div class="week-col-card">
+        <div class="col-header">Resources to use this week</div>
+        <ul class="dot-list">
+          <li>Language Transfer: Lessons 6–12</li>
+          <li>Duolingo/Busuu: daily 15 min — numbers + people units</li>
+          <li>Anki: Add new cards — always write full phrases, not single words</li>
+          <li>Dreaming Spanish: 20 min/day — Superbeginner playlist continues</li>
+          <li>HelloTalk: Send your first text introduction in Spanish (5 sentences)</li>
+          <li>SpanishDict: Look up every new noun with its gender article</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phrase-box">
+      <div class="col-header">Essential phrases this week</div>
+      <div class="phrase-grid">
+        <div class="phrase-item"><div class="phrase-es">Tengo 28 años</div><div class="phrase-en">I am 28 years old</div></div>
+        <div class="phrase-item"><div class="phrase-es">Vivo en Katmandú</div><div class="phrase-en">I live in Kathmandu</div></div>
+        <div class="phrase-item"><div class="phrase-es">Trabajo en turismo</div><div class="phrase-en">I work in tourism</div></div>
+        <div class="phrase-item"><div class="phrase-es">¿Cuántos años tiene?</div><div class="phrase-en">How old are you? (formal)</div></div>
+        <div class="phrase-item"><div class="phrase-es">¿Dónde vive usted?</div><div class="phrase-en">Where do you live? (formal)</div></div>
+        <div class="phrase-item"><div class="phrase-es">¿A qué se dedica?</div><div class="phrase-en">What do you do for work?</div></div>
+        <div class="phrase-item"><div class="phrase-es">¿Cuál es su teléfono?</div><div class="phrase-en">What is your phone number?</div></div>
+        <div class="phrase-item"><div class="phrase-es">Mi familia es de Nepal</div><div class="phrase-en">My family is from Nepal</div></div>
+      </div>
+    </div>
+    <div class="task-box">
+      <div class="col-header">Daily tasks</div>
+      <ul class="dot-list">
+        <li>Language Transfer: Lessons 6–12, one lesson per day — active listening</li>
+        <li>Count everything around you in Spanish during the day</li>
+        <li>Write: describe yourself and your family in 10 sentences (new ones each day)</li>
+        <li>Dreaming Spanish: 20 min/day Superbeginner</li>
+        <li>Anki: 15 min morning — all new nouns go in WITH their gender article</li>
+        <li>Voice recording: Introduce yourself + give your phone number in Spanish</li>
+      </ul>
+    </div>
+    <div class="end-test">
+      <div class="end-test-title">📋 End-of-week self-test</div>
+      <ul>
+        <li>Give your phone number in Spanish without hesitation</li>
+        <li>Spell your name in Spanish (using the Spanish alphabet)</li>
+        <li>Ask 5 personal questions to an imaginary person</li>
+        <li>Say what you do for work, where you live, and how old you are — in one minute</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 3 -->
+<div id="page-w3" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w2')">← Week 2</button><button class="btn-week-nav primary" onclick="showWeek('w4')">Week 4 →</button></div>
+    <div class="week-hero m1"><div class="week-hero-left"><div class="week-hero-tag">Month 1 — Week 3</div><div class="week-hero-title">Present Tense &amp; Daily Routine</div><div class="week-hero-goal">Goal: Describe your daily routine in 8+ sentences. By end of Week 3, you can conjugate regular verbs, use negatives, and talk about what you do every day.</div></div><div class="week-hero-right"><div class="week-cefr">A1</div><div class="week-days">Days 15–21</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority this week:</strong> Spanish verbs change their ending for each person — this is called conjugation. There are 3 verb types: -AR (hablar), -ER (comer), -IR (vivir). Each follows regular rules. Learn these patterns and you instantly know how to use hundreds of verbs. Start Coffee Break Spanish this week.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>-AR verbs: hablar, trabajar, escuchar, estudiar, comprar, caminar, visitar</li><li>-ER verbs: comer, beber, leer, ver, entender</li><li>-IR verbs: vivir, escribir, abrir</li><li>Days of the week and time</li><li>Negation: No hablo español / No entiendo</li><li>Time adverbs: siempre, nunca, todos los días, por la mañana</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources to use this week</div><ul class="dot-list"><li>Language Transfer: Lessons 13–20</li><li>Coffee Break Spanish: Start Season 1, Episodes 1–2</li><li>Duolingo/Busuu: daily 15 min — verbs &amp; routines</li><li>Dreaming Spanish: 20 min/day Superbeginner</li><li>Anki: Add all new verbs with full conjugation example</li><li>italki: Find your first language exchange partner this week</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Trabajo por la mañana</div><div class="phrase-en">I work in the morning</div></div><div class="phrase-item"><div class="phrase-es">Estudio español todos los días</div><div class="phrase-en">I study Spanish every day</div></div><div class="phrase-item"><div class="phrase-es">Como a las dos</div><div class="phrase-en">I eat at 2 o'clock</div></div><div class="phrase-item"><div class="phrase-es">No entiendo. ¿Puede hablar más despacio?</div><div class="phrase-en">I don't understand. Can you speak more slowly?</div></div><div class="phrase-item"><div class="phrase-es">¿A qué hora empieza?</div><div class="phrase-en">What time does it start?</div></div><div class="phrase-item"><div class="phrase-es">Leo y escucho español</div><div class="phrase-en">I read and listen to Spanish</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Language Transfer: Lessons 13–20 — one lesson per day</li><li>Coffee Break Spanish: Episodes 1–3 this week</li><li>Write: Your daily routine in 8 sentences minimum — use different verbs each day</li><li>Speak out loud: Narrate what you are doing as you do it ("Yo como arroz. Bebo agua. Trabajo.")</li><li>Dreaming Spanish: 20 min/day</li><li>Voice recording: Describe what you did today in Spanish</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Conjugate 10 regular verbs from memory (all persons)</li><li>Describe your normal day in 8 sentences — no reading</li><li>Respond to: ¿A qué hora te levantas? ¿Qué haces por la tarde?</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 4 -->
+<div id="page-w4" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w3')">← Week 3</button><button class="btn-week-nav primary" onclick="showWeek('w5')">Week 5 →</button></div>
+    <div class="week-hero m1"><div class="week-hero-left"><div class="week-hero-tag">Month 1 — Week 4</div><div class="week-hero-title">Places, Locations &amp; Directions</div><div class="week-hero-goal">Goal: Help someone find a place. Use estar for location. By end of Week 4, you can give basic directions, describe where things are, and hold a 2-minute controlled conversation.</div></div><div class="week-hero-right"><div class="week-cefr">A1</div><div class="week-days">Days 22–28</div></div></div>
+    <div class="focus-box"><strong>🎯 Month 1 checkpoint:</strong> By end of this week, you should be able to: introduce yourself, ask basic questions, give simple directions, and understand slow Spanish about familiar topics. If you can do these things, you are exactly on track. If not — add 20 extra minutes per day next month.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>Places: hotel, restaurante, aeropuerto, baño, calle, oficina, tienda, estación</li><li>Directions: izquierda, derecha, recto, cerca, lejos, aquí, allí</li><li>Transport: taxi, autobús, coche, billete, salida, llegada</li><li>Verb estar: for location (El hotel está cerca)</li><li>Hay = there is / there are</li><li>Prepositions: en, cerca de, delante de, detrás de, al lado de</li><li>Verb ser vs estar — key difference (permanent vs location/state)</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Language Transfer: Lessons 21–28</li><li>Coffee Break Spanish: Season 1, Episodes 4–6</li><li>Dreaming Spanish: 20 min/day Superbeginner</li><li>italki: First language exchange session — introduce yourself and practice ser/estar</li><li>Anki: Add all new place vocabulary WITH ser or estar as appropriate</li><li>SpanishDict: Listen to audio for every new direction word</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">¿Dónde está el baño?</div><div class="phrase-en">Where is the bathroom?</div></div><div class="phrase-item"><div class="phrase-es">El hotel está cerca</div><div class="phrase-en">The hotel is nearby</div></div><div class="phrase-item"><div class="phrase-es">Hay un restaurante aquí</div><div class="phrase-en">There is a restaurant here</div></div><div class="phrase-item"><div class="phrase-es">Siga recto / Gire a la derecha</div><div class="phrase-en">Go straight / Turn right</div></div><div class="phrase-item"><div class="phrase-es">Está al lado de la tienda</div><div class="phrase-en">It is next to the shop</div></div><div class="phrase-item"><div class="phrase-es">¿A cuánto está?</div><div class="phrase-en">How far is it?</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Language Transfer: Lessons 21–28</li><li>Coffee Break Spanish Episodes 4–6</li><li>Write a 3-paragraph description of your neighbourhood in Spanish</li><li>Record yourself giving directions from one place to another</li><li>italki: First session — tell your partner about your city, ask about theirs</li><li>Month 1 self-test: Record yourself on video for 2 minutes speaking only Spanish</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week + End-of-Month-1 test</div><ul><li>Give directions from the hotel to the restaurant</li><li>Describe 5 places using estar + prepositions</li><li>Hold a 2-minute conversation in Spanish with a partner or out loud alone</li><li>Introduce yourself, describe your work, and explain where you live — all from memory</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 5 -->
+<div id="page-w5" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w4')">← Week 4</button><button class="btn-week-nav primary" onclick="showWeek('w6')">Week 6 →</button></div>
+    <div class="week-hero m2"><div class="week-hero-left"><div class="week-hero-tag">Month 2 — Week 5</div><div class="week-hero-title">Food, Restaurants &amp; Shopping</div><div class="week-hero-goal">Goal: Order food, ask prices, buy things, and express preferences. Practical Spanish that you will use in professional tourism situations every day.</div></div><div class="week-hero-right"><div class="week-cefr">A1+</div><div class="week-days">Days 29–35</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority:</strong> Complete Language Transfer this week (lessons 29–40). This is a major milestone, Prashanta. Once you finish Language Transfer, your grammatical intuition for Spanish will be far stronger than most learners at this level. After finishing, focus on listening more and speaking more.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>Food and drink vocabulary (at least 40 words)</li><li>Restaurant phrases — ordering, asking the bill</li><li>Verb querer: quiero, quiere, queremos</li><li>Verb poder: puedo, puede (can / to be able to)</li><li>Me gusta / me encanta / no me gusta</li><li>Prices and quantities: un kilo de, una botella de, medio litro</li><li>Singular/plural of nouns — review and expand</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Language Transfer: Lessons 29–40 — finish the course this week!</li><li>Coffee Break Spanish: Season 1 Episodes 7–10</li><li>Dreaming Spanish: 20 min/day — Beginner playlist starts now</li><li>italki: 2nd session — role-play ordering food in a restaurant</li><li>Anki: Food vocabulary + querer/poder conjugation cards</li><li>YouTube: Easy Spanish "Eating in Spain" style videos</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Quiero un café, por favor</div><div class="phrase-en">I want a coffee, please</div></div><div class="phrase-item"><div class="phrase-es">¿Cuánto cuesta?</div><div class="phrase-en">How much does it cost?</div></div><div class="phrase-item"><div class="phrase-es">¿Tiene agua sin gas?</div><div class="phrase-en">Do you have still water?</div></div><div class="phrase-item"><div class="phrase-es">La cuenta, por favor</div><div class="phrase-en">The bill, please</div></div><div class="phrase-item"><div class="phrase-es">Me gusta la comida española</div><div class="phrase-en">I like Spanish food</div></div><div class="phrase-item"><div class="phrase-es">No como carne</div><div class="phrase-en">I don't eat meat</div></div><div class="phrase-item"><div class="phrase-es">¿Qué recomienda?</div><div class="phrase-en">What do you recommend?</div></div><div class="phrase-item"><div class="phrase-es">Quiero pagar con tarjeta</div><div class="phrase-en">I want to pay by card</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Language Transfer: Lessons 29–40 — FINISH THE COURSE. Celebrate when done!</li><li>Coffee Break Spanish: 3–4 episodes this week</li><li>Dreaming Spanish: 20 min/day — move to Beginner playlist</li><li>Role-play: Alone at home, pretend to order food in Spanish out loud for 5 min</li><li>italki: Practice ordering a meal and asking prices</li><li>Write: Your favourite foods and why, in Spanish (10 sentences)</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Order a complete meal in a restaurant — without hesitation</li><li>Ask the price of 5 different items</li><li>Say what you like and dislike about food in Spanish</li><li>Congratulate yourself — you finished Language Transfer! That is huge.</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 6 -->
+<div id="page-w6" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w5')">← Week 5</button><button class="btn-week-nav primary" onclick="showWeek('w7')">Week 7 →</button></div>
+    <div class="week-hero m2"><div class="week-hero-left"><div class="week-hero-tag">Month 2 — Week 6</div><div class="week-hero-title">Professional Spanish &amp; Work Identity</div><div class="week-hero-goal">Goal: Explain your work in Spanish, use formal usted, and write a professional self-description. This is directly relevant to your professional future.</div></div><div class="week-hero-right"><div class="week-cefr">A1+</div><div class="week-days">Days 36–42</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority:</strong> Learn the difference between tú (informal, with friends) and usted (formal, with clients and strangers). In professional contexts in Spanish, you should use usted unless told otherwise. The verb conjugation for usted is the same as él/ella — so you already know it!</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>Work vocabulary: empresa, cliente, servicio, guía, turismo, viaje, reserva, precio, horario, grupo</li><li>Irregular verbs present: ir, hacer, salir, venir, saber, conocer</li><li>Formal usted — when and how to use it</li><li>Professional phrases for meetings and introductions</li><li>Telephone phrases: ¿Podría hablar con...? Un momento, por favor</li><li>Email basics: Estimado/a, Le saluda, Atentamente</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Coffee Break Spanish: Season 1 Episodes 11–14</li><li>Dreaming Spanish: 20 min/day Beginner</li><li>italki: Session with professional role-play — meeting a client</li><li>Anki: All work vocabulary — add full sentence examples</li><li>SpanishDict: Irregular verb conjugation tables for ir, hacer, salir, venir</li><li>HelloTalk: Write a short professional introduction in Spanish</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential professional phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Trabajo en turismo</div><div class="phrase-en">I work in tourism</div></div><div class="phrase-item"><div class="phrase-es">Soy guía turístico</div><div class="phrase-en">I am a tour guide</div></div><div class="phrase-item"><div class="phrase-es">Organizamos viajes y visitas</div><div class="phrase-en">We organise trips and visits</div></div><div class="phrase-item"><div class="phrase-es">Este servicio incluye…</div><div class="phrase-en">This service includes…</div></div><div class="phrase-item"><div class="phrase-es">El precio es…</div><div class="phrase-en">The price is…</div></div><div class="phrase-item"><div class="phrase-es">La visita empieza a las nueve</div><div class="phrase-en">The visit starts at nine</div></div><div class="phrase-item"><div class="phrase-es">¿En qué puedo ayudarle?</div><div class="phrase-en">How can I help you?</div></div><div class="phrase-item"><div class="phrase-es">Con mucho gusto</div><div class="phrase-en">With pleasure / My pleasure</div></div></div></div>
+    <div class="task-box"><div class="col-header">Writing task this week</div><ul class="dot-list"><li>Write a professional self-introduction: "Me llamo Prashanta. Soy de Nepal. Trabajo en turismo. Hablo nepalí e inglés. Estoy aprendiendo español porque…" (minimum 10 sentences)</li><li>Record yourself presenting this professionally — as if to a client</li><li>italki: Role-play a first meeting with a Spanish-speaking client</li><li>Anki: Review all irregular verbs from Language Transfer + new professional vocabulary</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Explain your job in 60 seconds in Spanish — no reading</li><li>Respond to: ¿A qué se dedica? ¿Dónde trabaja?</li><li>Use usted correctly in 5 sentences to a "client"</li><li>Write a 100-word professional profile from memory</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 7 -->
+<div id="page-w7" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w6')">← Week 6</button><button class="btn-week-nav primary" onclick="showWeek('w8')">Week 8 →</button></div>
+    <div class="week-hero m2"><div class="week-hero-left"><div class="week-hero-tag">Month 2 — Week 7</div><div class="week-hero-title">Travel, Hotel &amp; Talking About the Future</div><div class="week-hero-goal">Goal: Help a Spanish-speaking visitor with travel needs. Explain schedules, give hotel information, and talk about plans using the near future tense.</div></div><div class="week-hero-right"><div class="week-cefr">A1+</div><div class="week-days">Days 43–49</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority:</strong> The near future (ir + a + infinitive) is how Spanish speakers talk about upcoming plans in everyday conversation. "Voy a estudiar" (I'm going to study). "Vamos a salir a las siete" (We're going to leave at seven). Use this constantly — it is essential for tourism work.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>Hotel vocabulary: habitación, reserva, check-in, pasaporte, llave, recepción</li><li>Travel vocabulary: billete, vuelo, salida, llegada, equipaje, destino</li><li>Dates and months — full calendar vocabulary</li><li>Weather basics: hace calor/frío, llueve, nieva</li><li>Near future: ir + a + infinitive (Voy a visitar, Van a llegar)</li><li>Tener que + infinitive: Tiene que traer el pasaporte</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Coffee Break Spanish: Season 2 Episodes 1–4</li><li>Dreaming Spanish: 20 min/day Beginner + Easy Spanish 1–2 videos</li><li>italki: Role-play hotel check-in and day-trip planning</li><li>Anki: All travel vocabulary + near future formula sentences</li><li>SpanishDict: Listen to weather vocabulary — pronunciation</li><li>HelloTalk: Write about your plans for this weekend in Spanish</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Vamos a salir a las siete</div><div class="phrase-en">We are going to leave at seven</div></div><div class="phrase-item"><div class="phrase-es">Tiene que traer el pasaporte</div><div class="phrase-en">You need to bring your passport</div></div><div class="phrase-item"><div class="phrase-es">Hoy vamos a visitar…</div><div class="phrase-en">Today we are going to visit…</div></div><div class="phrase-item"><div class="phrase-es">Mañana hace frío</div><div class="phrase-en">Tomorrow it will be cold</div></div><div class="phrase-item"><div class="phrase-es">La habitación está lista</div><div class="phrase-en">The room is ready</div></div><div class="phrase-item"><div class="phrase-es">¿Para cuántas noches?</div><div class="phrase-en">For how many nights?</div></div><div class="phrase-item"><div class="phrase-es">El vuelo sale a las…</div><div class="phrase-en">The flight leaves at…</div></div><div class="phrase-item"><div class="phrase-es">Necesito confirmar la reserva</div><div class="phrase-en">I need to confirm the booking</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Coffee Break Spanish Season 2: Episodes 1–4</li><li>Write: A one-day travel itinerary for a Spanish tourist in your city (15 sentences, future tense)</li><li>italki: Explain a day trip plan to your partner — they ask questions</li><li>Dreaming Spanish: 20 min/day</li><li>Anki: 10 new travel + hotel words per day in full sentence context</li><li>Voice recording: Describe tomorrow's schedule for an imaginary client</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Explain a simple one-day trip plan (beginning to end)</li><li>Give hotel check-in information to a guest</li><li>Respond to: ¿A qué hora llegamos? ¿Qué vamos a visitar?</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 8 -->
+<div id="page-w8" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w7')">← Week 7</button><button class="btn-week-nav primary" onclick="showWeek('w9')">Week 9 →</button></div>
+    <div class="week-hero m2"><div class="week-hero-left"><div class="week-hero-tag">Month 2 — Week 8</div><div class="week-hero-title">Handling Problems &amp; Client Situations</div><div class="week-hero-goal">Goal: Handle problems calmly and professionally in Spanish. Manage delays, health issues, misunderstandings, and difficult situations with the right phrases.</div></div><div class="week-hero-right"><div class="week-cefr">A2</div><div class="week-days">Days 50–56</div></div></div>
+    <div class="focus-box"><strong>🎯 Month 2 checkpoint:</strong> By end of this week you should be able to: hold a 3–4 minute slow conversation, explain your work, help with basic travel/food/schedule situations, and write a 100-word self-introduction. If you can do this, you are on track for A1/A2 by Month 3.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>Problem vocabulary: problema, ayuda, perdido, enfermo, tarde, cancelado, cerrado, abierto</li><li>Health basics: dolor, cabeza, estómago, farmacia, médico, urgencias</li><li>Apologies and solutions: Lo siento, No se preocupe, Voy a ayudarle</li><li>Imperatives for instructions: espere, mire, venga, siga, escuche</li><li>Connecting words: primero, luego, después, al final, sin embargo</li><li>Expressing opinions: Creo que, pienso que, en mi opinión</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Coffee Break Spanish: Season 2 Episodes 5–8</li><li>Dreaming Spanish: 20 min/day Beginner</li><li>Easy Spanish: 1–2 videos this week</li><li>italki: Full 30-min session — role-play a problem situation</li><li>Anki: Problem + health vocabulary with sentences</li><li>Self-assessment: Record yourself for 3 minutes. Compare with Week 1. Note the difference!</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Hay un problema</div><div class="phrase-en">There is a problem</div></div><div class="phrase-item"><div class="phrase-es">Lo siento mucho</div><div class="phrase-en">I am very sorry</div></div><div class="phrase-item"><div class="phrase-es">No se preocupe</div><div class="phrase-en">Don't worry</div></div><div class="phrase-item"><div class="phrase-es">Voy a ayudarle</div><div class="phrase-en">I am going to help you</div></div><div class="phrase-item"><div class="phrase-es">Necesitamos esperar</div><div class="phrase-en">We need to wait</div></div><div class="phrase-item"><div class="phrase-es">¿Necesita un médico?</div><div class="phrase-en">Do you need a doctor?</div></div><div class="phrase-item"><div class="phrase-es">La oficina está cerrada</div><div class="phrase-en">The office is closed</div></div><div class="phrase-item"><div class="phrase-es">Vamos a solucionarlo</div><div class="phrase-en">We are going to solve it</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks + Month 2 review</div><ul class="dot-list"><li>Coffee Break Spanish Season 2: Episodes 5–8</li><li>Role-play 3 different problem situations out loud (alone or with a partner)</li><li>italki: Full conversation session — stay in Spanish as long as possible</li><li>Write: 150-word self-introduction + professional description from memory</li><li>Self-test: Record 3 minutes of free speaking on any topic. Listen back. How far have you come?</li><li>Check your Anki deck: Do you know 400+ words/phrases by now?</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week + End-of-Month-2 test</div><ul><li>Handle 3 different problem scenarios in Spanish</li><li>Write a 150-word professional introduction from memory</li><li>Hold a 4-minute conversation in Spanish on a familiar topic</li><li>Say what you think about something using Creo que…</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 9 -->
+<div id="page-w9" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w8')">← Week 8</button><button class="btn-week-nav primary" onclick="showWeek('w10')">Week 10 →</button></div>
+    <div class="week-hero m3"><div class="week-hero-left"><div class="week-hero-tag">Month 3 — Week 9</div><div class="week-hero-title">The Past Tense (Pretérito Indefinido)</div><div class="week-hero-goal">Goal: Start talking about what happened — yesterday, last week, last year. The most important tense for telling stories and reporting events.</div></div><div class="week-hero-right"><div class="week-cefr">A2</div><div class="week-days">Days 57–63</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority:</strong> Do not try to master all past tenses at once. Focus this week only on the Pretérito Indefinido — completed actions. Start News in Slow Spanish (beginner) from this week. Do not worry if you only understand 30–40% at first — that is perfectly normal and it improves quickly.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>-AR past: hablé, hablaste, habló, hablamos, hablaron</li><li>-ER/-IR past: comí, comiste, comió / viví, viviste, vivió</li><li>Key irregular past: fui/fue, vine/vino, hice/hizo, dije/dijo, tuve/tuvo, puse/puso</li><li>Time expressions: ayer, anteayer, la semana pasada, el año pasado, hace dos días</li><li>Telling a story sequence: primero… luego… después… al final…</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Coffee Break Spanish: Season 2 Episodes 9–12</li><li>Dreaming Spanish: 20 min/day Beginner — look for past tense content</li><li>News in Slow Spanish: Start! Use transcript. 2–3 episodes this week.</li><li>italki: Tell your partner about something that happened to you recently</li><li>Anki: All irregular past tense forms — one card per verb</li><li>SpanishDict: Conjugation tables for all irregular past verbs</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Ayer trabajé todo el día</div><div class="phrase-en">Yesterday I worked all day</div></div><div class="phrase-item"><div class="phrase-es">La visita fue muy buena</div><div class="phrase-en">The visit was very good</div></div><div class="phrase-item"><div class="phrase-es">El cliente llegó tarde</div><div class="phrase-en">The client arrived late</div></div><div class="phrase-item"><div class="phrase-es">Fuimos al hotel</div><div class="phrase-en">We went to the hotel</div></div><div class="phrase-item"><div class="phrase-es">Hice una reserva</div><div class="phrase-en">I made a booking</div></div><div class="phrase-item"><div class="phrase-es">¿Qué hiciste ayer?</div><div class="phrase-en">What did you do yesterday?</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Coffee Break Spanish: Episodes 9–12 this week</li><li>News in Slow Spanish: 2–3 beginner episodes with transcript</li><li>Write: Diary entry every day — what did you do? (8+ sentences in past tense)</li><li>italki: Tell a short story about something that happened</li><li>Anki: Irregular past verb forms — review twice per day this week</li><li>Voice recording: Describe what you did yesterday in Spanish</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Explain what you did yesterday in 8 sentences — no notes</li><li>Tell a simple story about a client problem that happened (past tense)</li><li>Conjugate fui, hice, tuve, vine, puse, dije from memory</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 10 -->
+<div id="page-w10" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w9')">← Week 9</button><button class="btn-week-nav primary" onclick="showWeek('w11')">Week 11 →</button></div>
+    <div class="week-hero m3"><div class="week-hero-left"><div class="week-hero-tag">Month 3 — Week 10</div><div class="week-hero-title">Describing Places, Services &amp; Comparisons</div><div class="week-hero-goal">Goal: Describe a place, service, or product professionally. Use adjectives with agreement, and make comparisons. Start reading Spanish news headlines.</div></div><div class="week-hero-right"><div class="week-cefr">A2</div><div class="week-days">Days 64–70</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority:</strong> In Spanish, adjectives must agree in gender and number with the noun they describe: "el servicio cómodo" (masc.) / "la habitación cómoda" (fem.) / "los servicios cómodos" (pl.). This is automatic with practice. Start reading BBC Mundo headlines this week — just headlines, not full articles.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">What to learn</div><ul class="dot-list"><li>Adjectives: bonito, grande, pequeño, interesante, importante, fácil, difícil, caro, barato, cómodo, seguro, especial, local, tradicional, cultural</li><li>Adjective agreement: -o/-a/-os/-as</li><li>Comparisons: más… que, menos… que, tan… como</li><li>Intensifiers: muy, bastante, un poco, demasiado</li><li>More past tense practice — imperfect introduction: era, estaba, había</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Resources</div><ul class="dot-list"><li>Coffee Break Spanish: Season 2 Episodes 13–16</li><li>Dreaming Spanish: 20 min/day Beginner</li><li>BBC Mundo: Read 3–5 headlines per day — identify familiar words</li><li>News in Slow Spanish: 2–3 episodes per week</li><li>italki: Describe your city and region — what makes it special?</li><li>Anki: Adjectives + their feminine/plural forms together on one card</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Essential phrases</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Es un lugar muy bonito</div><div class="phrase-en">It is a very beautiful place</div></div><div class="phrase-item"><div class="phrase-es">La visita es interesante</div><div class="phrase-en">The visit is interesting</div></div><div class="phrase-item"><div class="phrase-es">Este servicio es más caro pero más cómodo</div><div class="phrase-en">This service is more expensive but more comfortable</div></div><div class="phrase-item"><div class="phrase-es">La ruta es un poco difícil</div><div class="phrase-en">The route is a little difficult</div></div><div class="phrase-item"><div class="phrase-es">Es tan bonito como…</div><div class="phrase-en">It is as beautiful as…</div></div><div class="phrase-item"><div class="phrase-es">Era muy diferente antes</div><div class="phrase-en">It was very different before</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Coffee Break Spanish: Episodes 13–16</li><li>BBC Mundo: 5 headlines per day — identify words, guess topic from context</li><li>Write: Describe your city or region in Spanish as a tourism professional (20 sentences)</li><li>italki: Present one tourism service you offer — describe and compare options</li><li>Dreaming Spanish: 20 min/day — intermediate content if you can follow it</li><li>Anki: Adjective vocabulary + 10 new words per day from BBC Mundo reading</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Describe your city or region in 90 seconds — no notes</li><li>Describe one service using at least 3 adjectives correctly</li><li>Make a comparison between two services or places</li><li>Read one BBC Mundo headline and explain what it probably means</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 11 -->
+<div id="page-w11" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w10')">← Week 10</button><button class="btn-week-nav primary" onclick="showWeek('w12')">Week 12 →</button></div>
+    <div class="week-hero m3"><div class="week-hero-left"><div class="week-hero-tag">Month 3 — Week 11</div><div class="week-hero-title">Client Conversations &amp; Role-Play Week</div><div class="week-hero-goal">Goal: Simulate real professional conversations. This week is mostly speaking. By end of Week 11, you can handle 6 different client scenarios in Spanish.</div></div><div class="week-hero-right"><div class="week-cefr">A2</div><div class="week-days">Days 71–77</div></div></div>
+    <div class="focus-box"><strong>🎯 Priority:</strong> Prashanta, this week is about performance, not new grammar. Take everything you have learned and use it in real scenarios. Do each role-play out loud, by yourself first, then with an italki partner. Push yourself to stay in Spanish even when it is difficult. That discomfort is progress.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">6 role-plays to practice</div><ul class="dot-list"><li>A Spanish client asks about your service — explain it fully</li><li>A client wants to know the price and what is included</li><li>A client has a problem — listen, apologise, offer solution</li><li>A client is late and you need to manage the group</li><li>A client asks for a recommendation — give one with reasons</li><li>A client does not understand English — help them only in Spanish</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Grammar review — all in one place</div><ul class="dot-list"><li>Ser vs estar — double-check you know the difference</li><li>Present tense — all regular and key irregular verbs</li><li>Near future — ir + a + infinitive</li><li>Basic past — pretérito indefinido key verbs</li><li>Formal usted — all professional contexts</li><li>Question words — ¿Qué? ¿Cuándo? ¿Cuánto? ¿Dónde? ¿Por qué?</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">Professional phrases to make automatic</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">¿Qué necesita?</div><div class="phrase-en">What do you need?</div></div><div class="phrase-item"><div class="phrase-es">¿Cuántas personas son?</div><div class="phrase-en">How many people are there?</div></div><div class="phrase-item"><div class="phrase-es">¿Para qué fecha?</div><div class="phrase-en">For what date?</div></div><div class="phrase-item"><div class="phrase-es">El precio incluye… / no incluye…</div><div class="phrase-en">The price includes… / does not include…</div></div><div class="phrase-item"><div class="phrase-es">Le recomiendo…</div><div class="phrase-en">I recommend to you…</div></div><div class="phrase-item"><div class="phrase-es">Podemos organizarlo</div><div class="phrase-en">We can organise it</div></div><div class="phrase-item"><div class="phrase-es">Necesito confirmar la disponibilidad</div><div class="phrase-en">I need to confirm availability</div></div><div class="phrase-item"><div class="phrase-es">Muchas gracias por su confianza</div><div class="phrase-en">Thank you very much for your trust</div></div></div></div>
+    <div class="task-box"><div class="col-header">Daily tasks</div><ul class="dot-list"><li>Do all 6 role-plays out loud this week — at least once each</li><li>italki: 2 sessions this week — push for longer uninterrupted Spanish</li><li>News in Slow Spanish: 3 episodes with transcript and without</li><li>Write: A professional email to a client confirming a booking (in Spanish)</li><li>BBC Mundo: Read 1 full short article with dictionary — summarise it in Spanish</li><li>Go back and listen to your Week 4 voice recording. Hear how far you have come.</li></ul></div>
+    <div class="end-test"><div class="end-test-title">📋 End-of-week self-test</div><ul><li>Complete all 6 role-plays with an italki partner or alone</li><li>Write a professional email to a client in Spanish without help</li><li>Respond without hesitation to: ¿En qué puedo ayudarle? ¿Cuánto cuesta? ¿Qué incluye?</li></ul></div>
+  </div>
+</div>
+
+<!-- WEEK 12 -->
+<div id="page-w12" class="week-page">
+  <div style="padding:36px 40px 60px;">
+    <div class="week-nav-bar"><button class="btn-week-nav" onclick="showWeek('w11')">← Week 11</button><button class="btn-week-nav" onclick="showPage('home')">Home ↩</button></div>
+    <div class="week-hero m3"><div class="week-hero-left"><div class="week-hero-tag">Month 3 — Week 12</div><div class="week-hero-title">Final Sprint &amp; A1 Self-Assessment</div><div class="week-hero-goal">Goal: Prove to yourself that you can use basic Spanish. This week is not for learning new things — it is for consolidation, self-assessment, and planning the next 3 months.</div></div><div class="week-hero-right"><div class="week-cefr">A1 ✓</div><div class="week-days">Days 78–84</div></div></div>
+    <div class="focus-box"><strong>🎯 Final message, Prashanta:</strong> You are here. You started from zero. You followed the plan. This week is your moment to measure everything you have built. Be proud of where you are — and use that momentum to keep going into your A2 plan.</div>
+    <div class="week-cols">
+      <div class="week-col-card"><div class="col-header">5 final assessment tasks</div><ul class="dot-list"><li>Record a 3-minute personal introduction (name, origin, work, plans, preferences)</li><li>Record a 3-minute professional presentation of a service you offer</li><li>Write a 150-word text about yourself and your work — from memory, no dictionary</li><li>Have a 10-minute conversation in Spanish on italki</li><li>Do one DELE A1-style reading and listening task (search "DELE A1 muestra" for free sample exams)</li></ul></div>
+      <div class="week-col-card"><div class="col-header">Final vocabulary checkpoint</div><ul class="dot-list"><li>Do you know 100 survival phrases by heart?</li><li>Can you use 80 words about personal information naturally?</li><li>Do you know 80–100 professional phrases for your work?</li><li>Can you name 150 words for food, shopping, travel, hotel?</li><li>Do you know 80+ verbs and how to conjugate them?</li><li>Total target: 500–700 active words/phrases — can you reach it?</li></ul></div>
+    </div>
+    <div class="phrase-box"><div class="col-header">What you should be able to say comfortably by now</div><div class="phrase-grid"><div class="phrase-item"><div class="phrase-es">Me llamo Prashanta. Soy de Nepal.</div><div class="phrase-en">My name is Prashanta. I am from Nepal.</div></div><div class="phrase-item"><div class="phrase-es">Trabajo en el sector del turismo.</div><div class="phrase-en">I work in the tourism sector.</div></div><div class="phrase-item"><div class="phrase-es">Ayer tuve una reunión con un cliente.</div><div class="phrase-en">Yesterday I had a meeting with a client.</div></div><div class="phrase-item"><div class="phrase-es">Mañana vamos a visitar la ciudad.</div><div class="phrase-en">Tomorrow we are going to visit the city.</div></div><div class="phrase-item"><div class="phrase-es">¿En qué puedo ayudarle?</div><div class="phrase-en">How can I help you?</div></div><div class="phrase-item"><div class="phrase-es">Este servicio incluye desayuno.</div><div class="phrase-en">This service includes breakfast.</div></div><div class="phrase-item"><div class="phrase-es">Lo siento, hay un pequeño problema.</div><div class="phrase-en">I'm sorry, there is a small problem.</div></div><div class="phrase-item"><div class="phrase-es">No se preocupe, voy a solucionarlo.</div><div class="phrase-en">Don't worry, I'm going to solve it.</div></div></div></div>
+    <div class="task-box"><div class="col-header">Week 12 schedule</div><ul class="dot-list"><li>Day 1–2: Complete all 5 assessment tasks. Record everything.</li><li>Day 3: Free speaking day — 30 minutes of Spanish conversation only, no study</li><li>Day 4: Write a Spanish diary of your 3-month journey — what you learned, how you feel, what surprised you</li><li>Day 5: Plan your next 3 months — write your A2 goals</li><li>Day 6: Celebration and rest — you earned it</li><li>Day 7: Watch a Spanish film with Spanish subtitles. Just enjoy it.</li></ul></div>
+    <div class="end-test" style="background:var(--teal-light);border-color:var(--teal);border-left-color:var(--teal);">
+      <div class="end-test-title" style="color:var(--teal);">🎉 Final self-assessment — can you do all of these?</div>
+      <ul>
+        <li>Introduce yourself confidently for 3 minutes — no notes</li>
+        <li>Explain where you are from and what you do in detail</li>
+        <li>Ask and answer basic client questions about a service</li>
+        <li>Talk about your daily routines in present and simple past</li>
+        <li>Use numbers, dates, times and prices correctly</li>
+        <li>Order food and ask for directions without hesitation</li>
+        <li>Describe a simple day plan using the future tense</li>
+        <li>Handle a simple problem situation professionally</li>
+        <li>Understand slow beginner Spanish audio without transcript</li>
+      </ul>
+    </div>
+    <div class="alert alert-gold" style="margin-top:20px;text-align:center;font-size:15px;">
+      <strong>¡Felicidades, Prashanta!</strong> You did it. Now do not stop — your A2 plan begins tomorrow. <em>¡Buena suerte!</em>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main-content -->
+</div><!-- end app-shell -->
+
+<script>
+/* ── AUTO-LINKER: converts resource names to clickable links everywhere ── */
+(function(){
+  const RL = [
+    ['Spanish Core 2000','https://ankiweb.net/shared/info/712616015'],
+    ['Language Transfer','https://www.languagetransfer.org/spanish'],
+    ['Coffee Break Spanish','https://coffeebreaklanguages.com/completespanish/'],
+    ['News in Slow Spanish','https://www.newsinslowspanish.com/beginner'],
+    ['Dreaming Spanish','https://www.dreamingspanish.com'],
+    ['Easy Spanish','https://www.youtube.com/@EasySpanish'],
+    ['SpanishDict','https://www.spanishdict.com'],
+    ['BBC Mundo','https://www.bbc.com/mundo'],
+    ['HelloTalk','https://www.hellotalk.com'],
+    ['Duolingo','https://www.duolingo.com'],
+    ['Busuu','https://www.busuu.com/en/course/learn-spanish-online'],
+    ['italki','https://www.italki.com'],
+    ['RTVE','https://www.rtve.es'],
+    ['Anki','https://apps.ankiweb.net'],
+    ['DELE A2','https://examenes.cervantes.es/es/dele/preparacion'],
+    ['DELE A1','https://examenes.cervantes.es/es/dele/preparacion'],
+  ];
+
+  function linkTextNode(node) {
+    let text = node.nodeValue;
+    let changed = false;
+    let result = text;
+    RL.forEach(([name, url]) => {
+      const re = new RegExp('(?<![\\w/\\.])' + name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '(?![\\w])', 'g');
+      if (re.test(result)) {
+        changed = true;
+        result = result.replace(re, '\x00' + name + '\x01' + url + '\x02');
+      }
+    });
+    if (!changed) return;
+    const span = document.createElement('span');
+    let html = result
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/\x00(.+?)\x01(.+?)\x02/g, (_, n, u) =>
+        `<a href="${u}" target="_blank" rel="noopener" class="rl">${n}</a>`);
+    span.innerHTML = html;
+    node.parentNode.replaceChild(span, node);
+  }
+
+  function walkAndLink(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(n) {
+        const p = n.parentNode;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        if (p.tagName === 'A' || p.tagName === 'SCRIPT' || p.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(linkTextNode);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const selectors = [
+      '.dot-list li',
+      '.sched-info',
+      '.focus-box',
+      '.week-hero-goal',
+      '.tip-desc',
+      '.res-desc',
+      '.res-when',
+      '.alert',
+      '.tl-desc',
+      '.track-desc',
+      '.ms-desc',
+      '.end-test ul li',
+    ];
+    document.querySelectorAll(selectors.join(',')).forEach(el => {
+      if (!el.closest('.res-name') && !el.closest('.res-url')) walkAndLink(el);
+    });
+  });
+})();
+
+function showPage(id) {
+  document.querySelectorAll('.page, .week-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  const pg = document.getElementById('page-' + id);
+  if (pg) pg.classList.add('active');
+  const link = document.querySelector('[data-page="' + id + '"]');
+  if (link) link.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function showWeek(id) {
+  document.querySelectorAll('.page, .week-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  document.querySelectorAll('.week-links a').forEach(a => a.classList.remove('active'));
+  const pg = document.getElementById('page-' + id);
+  if (pg) pg.classList.add('active');
+  const monthNum = parseInt(id.replace('w',''));
+  const monthGroup = monthNum <= 4 ? 'm1' : monthNum <= 8 ? 'm2' : 'm3';
+  document.querySelectorAll('.week-links').forEach(g => g.style.display = 'none');
+  const wl = document.getElementById('week-links-' + monthGroup);
+  if (wl) wl.style.display = 'block';
+  document.querySelectorAll('.month-pill').forEach(p => p.classList.remove('active'));
+  const idx = monthGroup === 'm1' ? 0 : monthGroup === 'm2' ? 1 : 2;
+  document.querySelectorAll('.month-pill')[idx].classList.add('active');
+  const links = document.querySelectorAll('.week-links a');
+  links.forEach(a => { if(a.getAttribute('onclick') && a.getAttribute('onclick').includes("'"+id+"'")) a.classList.add('active'); });
+  window.scrollTo(0,0);
+}
+
+function showWeekGroup(group, btn) {
+  document.querySelectorAll('.week-links').forEach(g => g.style.display = 'none');
+  document.getElementById('week-links-' + group).style.display = 'block';
+  document.querySelectorAll('.month-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function filterRes(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.res-card').forEach(c => {
+    if (type === 'all' || c.dataset.type === type) c.style.display = '';
+    else c.style.display = 'none';
+  });
+}
+
+function toggleCheck(li) {
+  li.classList.toggle('done');
+}
+</script>
+</body>
+</html>
